@@ -189,11 +189,6 @@ AmberPipeline/
 - 📅 Improve documentation and examples
 - 📅 Support more AI models and generation tools
 
-## Commercial Dimensions
-
-1. **Independent Developer Version**: Lightweight desktop software, providing basic AI generation + resource compilation
-2. **Enterprise Middleware Version**: CLI + plugins, integrable into CI/CD pipelines
-3. **Cloud SaaS Platform**: Web-based platform, no configuration needed, upload and use
 
 ## License
 
