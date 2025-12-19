@@ -1,0 +1,35 @@
+# AmberPipeline AI 依赖列表
+
+# 基础依赖
+numpy>=1.21.0
+pillow>=9.0.0
+
+# 图像处理
+opencv-python>=4.5.0
+# directxtk-textureprocessor>=1.0.0  # DirectXTex用于纹理压缩（已移除，需要手动安装）
+
+# AI推理
+# segment-anything>=1.0.0  # 仅在需要时安装
+# torch>=2.0.0  # 仅在需要时安装
+# torchvision>=0.15.0  # 仅在需要时安装
+# onnxruntime>=1.15.0  # 仅在需要时安装
+
+# 目录监视
+watchdog>=3.0.0
+
+# API服务
+fastapi>=0.95.0
+uvicorn>=0.22.0
+
+# UI框架
+# pyimgui>=2.0.0  # 仅在需要时安装
+# pygame>=2.1.0  # ImGui依赖，仅在需要时安装
+
+# 工具库
+pydantic>=2.0.0  # 用于数据验证
+rich>=13.0.0  # 用于美观的控制台输出
+
+# 开发工具
+black>=23.0.0  # 代码格式化
+flake8>=6.0.0  # 代码检查
+mypy>=1.0.0  # 类型检查
