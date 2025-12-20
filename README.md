@@ -74,28 +74,26 @@ Download the SAM model from [Segment Anything Model](https://github.com/facebook
 
 ### 3. Configure Parameters
 
-Edit the `config.json` file and adjust the following parameters:
+The configuration file `config.json` contains the following main configuration items:
 
 ```json
 {
-    "raw_dir": "Raw",           // Stores AI-generated original images
-    "sorted_dir": "Sorted",     // Files manually or AI-renamed, script monitors this folder
-    "processed_dir": "Processed", // Automatically processed, transparent PNGs
-    "compiled_dir": "Compiled",   // Final C++ engine binary files and .h headers
-    "watch_dir": "Sorted",      // Monitoring directory, pointing to Sorted
-    "output_dir": "Processed",   // Output directory, pointing to Processed
+    "raw_dir": "Raw",
+    "sorted_dir": "Sorted",
+    "processed_dir": "Processed",
+    "compiled_dir": "Compiled",
+    "watch_dir": "Sorted",
+    "output_dir": "Processed",
     "models_dir": "models",
-    "cpp_header_dir": "cpp/include",
-    "target_size": [512, 512],   // Target dimensions
-    "sam_model_path": "models/sam_vit_h_4b8939.pth",  // SAM model path
-    "sam_device": "cpu",        // Running device (cpu or cuda)
-    "sam_confidence_threshold": 0.8,  // Segmentation confidence threshold
-    "normal_strength": 1.0,      // Normal strength
-    "normal_blur": 0.5,           // Normal map blur
-    "batch_mode": false,          // Whether to enable batch mode
-    "max_parallel_tasks": 4       // Maximum number of parallel tasks
+    "target_size": [512, 512],
+    "sam_model_path": "models/sam_vit_h_4b8939.pth",
+    "sam_device": "cpu",
+    "sam_confidence_threshold": 0.8,
+    "normal_strength": 1.0,
+    "normal_blur": 0.5
 }
 ```
+
 
 ### 4. Run the Program
 
@@ -117,42 +115,52 @@ python main.py
 - `CHR_Mila_metadata.json` - Resource metadata file
 - `AssetIDs.h` - Automatically generated C++ resource ID header
 
+## Usage
+
+### 1. Prepare AI-generated Images
+
+Place AI-generated raw images into the `Raw/` directory.
+
+### 2. Rename Images
+
+Rename images to follow the four-segment naming convention and place them into the `Sorted/` directory:
+
+```
+[AssetType]_[AssetName]_[Variant]_[ProcessWorkflow].png
+```
+
+Example:
+```
+UI_Button_Start_default_process.png
+```
+
 ## Project Structure
 
 ```
 AmberPipeline/
-├── main.py                 # Main program entry
-├── config.py               # Configuration management
-├── config.json             # Configuration file
-├── requirements.txt        # Dependencies list
-├── README.md               # Project description (English)
-├── README-CN.md            # Project description (Chinese)
-├── Raw/                    # Stores AI-generated original images
-├── Sorted/                 # Files manually or AI-renamed
-├── Processed/              # Automatically processed, transparent PNGs
-├── Compiled/               # Final C++ engine binary files and .h headers
-├── cpp/                    # C++ code directory
-│   ├── include/            # C++ headers
-│   │   ├── AssetIDs.h      # Automatically generated resource ID header
-│   │   ├── ResourceManager.h # Resource manager header
-│   │   └── ResourceTypes.h  # Resource type definitions
-│   ├── src/                # C++ source files
-│   │   └── ResourceManager.cpp # Resource manager implementation
-│   └── tools/              # C++ tools
-│       ├── AssetPacker.cpp  # Resource packer
-│       └── ResourceSyncServer.cpp # Resource sync server
-├── modules/                # Function modules
-│   ├── image_processing.py  # Image processing basics
-│   ├── segmentation.py      # Semantic segmentation (SAM)
-│   ├── normal_map.py        # Normal map generation
-│   ├── naming_resolver.py   # Naming convention resolver
-│   └── code_sync.py         # C++ code generator
-├── python_bridge/          # Python and C++ bridge code
-│   └── amber_pipeline_bridge.py # Bridge implementation
-├── tools/                  # Auxiliary tools
-│   └── generate_asset_ids.py # Asset ID generation tool
-└── models/                 # AI model directory
-    └── sam_vit_h_4b8939.pth # SAM model file
+├── Raw/               # Stores AI-generated raw images
+├── Sorted/            # Manually or AI-initial renamed files, monitored by the script
+├── Processed/         # Automatically processed PNGs with transparency
+├── Compiled/          # Final C++ engine-specific binary files and .h headers
+├── cpp/               # C++ resource management and packaging tools
+│   ├── include/       # Header files
+│   ├── src/           # Source code
+│   └── tools/         # Utility programs
+├── modules/           # Python modules
+│   ├── segmentation.py     # Segmentation module
+│   ├── normal_map.py       # Normal map generation
+│   ├── image_processing.py # Image processing
+│   ├── naming_resolver.py  # Naming convention parsing
+│   └── code_sync.py        # Code synchronization
+├── models/            # AI model files
+├── python_bridge/     # Python-C++ bridge code
+├── tools/             # Auxiliary tool scripts
+├── config.json        # Configuration file
+├── config.py          # Configuration management
+├── main.py            # Main program
+├── requirements.txt   # Python dependencies
+├── LICENSE            # GNU GPL v3 license
+└── CODE_OF_CONDUCT.md # Contributor covenant
 ```
 
 ## Core Technology Stack
