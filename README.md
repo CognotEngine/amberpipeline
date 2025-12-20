@@ -191,9 +191,7 @@ AmberPipeline/
 - 📅 Support more AI models and generation tools
 
 
-## License
 
-[MIT License](LICENSE)
 
 ## Contribution
 
