@@ -208,7 +208,6 @@ Contributions are welcome! Please submit Issues and Pull Requests.
 ## Contact
 
 For questions or suggestions, please contact us through:
-- Email: [aomozx88@gmail.com]
 - GitHub: [https://github.com/CognotEngine/amberpipeline](https://github.com/CognotEngine/amberpipeline)
 
 ## Acknowledgments
