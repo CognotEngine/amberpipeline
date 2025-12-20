@@ -116,43 +116,7 @@ python main.py
 - `CHR_Mila_metadata.json` - 资源元数据文件
 - `AssetIDs.h` - 自动生成的 C++ 资源 ID 头文件
 
-## 项目结构
 
-```
-AmberPipeline/
-├── main.py                 # 主程序入口
-├── config.py               # 配置管理
-├── config.json             # 配置文件
-├── requirements.txt        # 依赖列表
-├── README.md               # 项目说明（英文）
-├── README-CN.md            # 项目说明（中文）
-├── Raw/                    # 存放 AI 生成的原始图
-├── Sorted/                 # 人工或 AI 初步重命名后的文件
-├── Processed/              # 自动化脚本处理后的、带透明度的 PNG
-├── Compiled/               # 最终生成的 C++ 引擎专用二进制文件和 .h 头文件
-├── cpp/                    # C++代码目录
-│   ├── include/            # C++头文件
-│   │   ├── AssetIDs.h      # 自动生成的资源ID头文件
-│   │   ├── ResourceManager.h # 资源管理器头文件
-│   │   └── ResourceTypes.h  # 资源类型定义
-│   ├── src/                # C++源文件
-│   │   └── ResourceManager.cpp # 资源管理器实现
-│   └── tools/              # C++工具
-│       ├── AssetPacker.cpp  # 资源打包器
-│       └── ResourceSyncServer.cpp # 资源同步服务器
-├── modules/                # 功能模块
-│   ├── image_processing.py  # 图像处理基础
-│   ├── segmentation.py      # 语义分割（SAM）
-│   ├── normal_map.py        # 法线贴图生成
-│   ├── naming_resolver.py   # 命名规范解析器
-│   └── code_sync.py         # C++代码生成器
-├── python_bridge/          # Python 与 C++ 桥接代码
-│   └── amber_pipeline_bridge.py # 桥接实现
-├── tools/                  # 辅助工具
-│   └── generate_asset_ids.py # 资产ID生成工具
-└── models/                 # AI 模型目录
-    └── sam_vit_h_4b8939.pth # SAM 模型文件
-```
 
 ## 核心技术栈
 
@@ -190,9 +154,7 @@ AmberPipeline/
 - 📅 支持更多 AI 模型和生成工具
 
 
-## 许可证
 
-[MIT License](LICENSE)
 
 ## 贡献
 
@@ -201,7 +163,6 @@ AmberPipeline/
 ## 联系方式
 
 如有问题或建议，请通过以下方式联系：
-- Email: [aomozx88@gmail.com]
 - GitHub: [https://github.com/CognotEngine/amberpipeline](https://github.com/CognotEngine/amberpipeline)
 
 ## 致谢
