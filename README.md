@@ -16,6 +16,8 @@ The entire process is divided into four stages, connected by Agents:
 
 ## MVP Features
 
+![ui](Sorted/113.jpg)
+
 The current version implements MVP features:
 - 🔍 Monitors directories and automatically processes newly added images
 - ✂️ Uses SAM (Segment Anything Model) for automatic segmentation
