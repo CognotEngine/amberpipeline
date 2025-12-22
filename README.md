@@ -1,5 +1,8 @@
 [中文介绍](https://github.com/CognotEngine/amberpipeline/blob/main/README-CN.md)
-# AmberPipeline AI
+
+<div align="center">
+  <img src="Sorted/LOGO.jpeg" alt="amber" width="300">
+</div>
 
 AmberPipeline AI is a middleware that connects the "AI creative end" with the "game engine runtime end", aiming to eliminate the gap between AI-generated resources and industrial game development, enabling fully automated conversion of assets from **Prompt to Binary**.
 
