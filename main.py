@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 AmberPipeline AI - MVP Stage
-Main script file, implementing AI image auto-processing pipeline
-Features: Monitor directory -> Auto segmentation -> Generate normal map -> Resize to 512x512
+主脚本文件，实现AI图片自动处理流水线
+功能：监视目录 -> 自动抠图 -> 生成法线贴图 -> 缩放到512x512
 """
 
 import os
@@ -11,7 +11,7 @@ import logging
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from config import Config
-from modules.segmentation import SAMSegmenter  # SAM模型已安装，启用
+# from modules.segmentation import SAMSegmenter  # 未安装segment-anything，暂时注释
 from modules.normal_map import NormalMapGenerator
 from modules.image_processing import ImageProcessor
 from modules.naming_resolver import NamingResolver
@@ -30,177 +30,170 @@ logger = logging.getLogger(__name__)
 
 class ImageProcessingHandler(FileSystemEventHandler):
     """
-    Directory monitoring event handler, triggers processing flow when new images are added
+    目录监视事件处理器，当有新图片添加时触发处理流程
     """
     def __init__(self, config):
         self.config = config
-        self.segmenter = SAMSegmenter(config)  # SAM model installed, enabled
+        # self.segmenter = SAMSegmenter(config)  # 未安装segment-anything，暂时注释
         self.normal_generator = NormalMapGenerator(config)
         self.image_processor = ImageProcessor(config)
         self.naming_resolver = NamingResolver()
         self.code_sync = CodeSync(config.output_dir, config.cpp_header_dir, config.compiled_dir)
-        # Asset list for generating C++ header files
+        # 资源列表，用于生成C++头文件
         self.asset_list = []
     
     def on_created(self, event):
-        """Called when a new file is created"""
+        """当有新文件创建时调用"""
         if not event.is_directory:
             file_path = event.src_path
             if self._is_supported_image(file_path):
-                logger.info(f"New image file detected: {file_path}")
-                # Add delay to wait for file to be fully written to disk
+                logger.info(f"新图片文件检测到: {file_path}")
+                # 添加延迟，等待文件完全写入磁盘
                 time.sleep(0.5)
                 self._process_image(file_path)
     
     def _is_supported_image(self, file_path):
-        """Check if file is a supported image format"""
+        """检查文件是否为支持的图片格式"""
         supported_formats = ['.jpg', '.jpeg', '.png', '.bmp', '.tga']
         ext = os.path.splitext(file_path)[1].lower()
         return ext in supported_formats
     
     def _process_image(self, file_path):
-        """
-        Complete image processing workflow
-        """
+        """处理图片的完整流程"""
         try:
-            # 1. Get base file information
+            # 1. 复制原始文件到工作目录
             base_name = os.path.basename(file_path)
             name_without_ext = os.path.splitext(base_name)[0]
             
-            # 2. Use naming resolver to get resource info and processing steps
+            # 2. 使用命名规范解析器获取资源信息和处理流程
             resource_info = self.naming_resolver.resolve(base_name)
-            logger.info(f"Resource info resolved from filename: {base_name} -> Type: {resource_info['resource_type']}, Processes: {resource_info['processes']}")
+            logger.info(f"根据文件名解析资源信息: {base_name} -> 类型: {resource_info['resource_type']}, 处理流程: {resource_info['processes']}")
             
-            # 3. Load original image
+            # 3. 加载原始图片
             original_image = self.image_processor.load_image(file_path)
             if original_image is None:
-                logger.error(f"Failed to load image: {file_path}")
+                logger.error(f"加载图片失败: {file_path}")
                 return
             
-            # 4. Execute processing steps
-            executed_steps = []
+            # 4. 跳过抠图处理（未安装SAM）
+            logger.info(f"跳过抠图处理（未安装SAM）: {file_path}")
             processed_image = original_image
+            
+            # 5. 执行处理流程
+            executed_steps = []
             
             for step in resource_info['processes']:
                 try:
-                    logger.info(f"Executing step: {step}")
+                    logger.info(f"执行步骤: {step}")
                     executed_steps.append(step)
                     
                     if step == "segment":
-                        # Segment image using SAM
-                        logger.info(f"Starting segmentation process")
-                        segmented_image = self.segmenter.segment(file_path)
-                        if segmented_image is not None:
-                            processed_image = segmented_image
-                            logger.info(f"Segmentation completed")
-                        else:
-                            logger.warning(f"Segmentation failed, continuing with original image")
+                        # 抠图处理（未安装SAM，跳过）
+                        logger.info(f"跳过抠图处理（未安装SAM）")
                     elif step == "align_bottom":
-                        # Align bottom
+                        # 对齐底部
                         processed_image = self.image_processor.align_bottom(processed_image)
                     elif step == "generate_shadow":
-                        # Generate shadow
+                        # 生成阴影
                         processed_image = self.image_processor.generate_shadow(processed_image)
                     elif step == "resize_square":
-                        # Square crop
-                        target_size = self.config.target_size[0]  # Assume square
+                        # 正方形裁切
+                        target_size = self.config.target_size[0]  # 假设是正方形
                         processed_image = self.image_processor.resize_square(processed_image, target_size)
                     elif step == "sharpen":
-                        # Sharpen edges
+                        # 边缘强化
                         processed_image = self.image_processor.sharpen(processed_image)
                     elif step == "make_seamless":
-                        # Make seamless
+                        # 无缝化处理
                         processed_image = self.image_processor.make_seamless(processed_image)
                     elif step == "gen_pbr":
-                        # Generate PBR textures (currently only normal map)
-                        logger.info(f"Starting normal map generation")
+                        # 生成PBR贴图（暂时只生成法线贴图）
+                        logger.info(f"开始生成法线贴图")
                         normal_map = self.normal_generator.generate(file_path)
                         if normal_map is not None:
                             normal_path = os.path.join(self.config.output_dir, f"{name_without_ext}_normal.png")
                             self.image_processor.save_image(normal_map, normal_path)
-                            logger.info(f"Normal map generated and saved to: {normal_path}")
+                            logger.info(f"法线贴图生成完成，保存到: {normal_path}")
                     elif step == "gen_lod":
-                        # Generate LODs
-                        logger.info(f"Starting LOD generation")
+                        # 生成LOD
+                        logger.info(f"开始生成LOD")
                         lods = self.image_processor.gen_lod(processed_image)
                         for i, lod_image in enumerate(lods):
                             lod_path = os.path.join(self.config.output_dir, f"{name_without_ext}_lod{i}.png")
                             self.image_processor.save_image(lod_image, lod_path)
-                            logger.info(f"LOD {i} generated and saved to: {lod_path}")
+                            logger.info(f"LOD {i} 生成完成，保存到: {lod_path}")
                     elif step == "box_collision":
-                        # Generate collision box
+                        # 生成碰撞体边界
                         collision_box = self.image_processor.box_collision(processed_image)
-                        logger.info(f"Collision box generated: {collision_box}")
+                        logger.info(f"碰撞体边界生成: {collision_box}")
                     elif step == "default_process":
-                        # Default processing flow
-                        logger.info(f"Executing default processing")
+                        # 默认处理流程
+                        logger.info(f"执行默认处理流程")
                         processed_image = self.image_processor.resize(processed_image, self.config.target_size)
                 except Exception as step_error:
-                    logger.error(f"Failed to execute step {step}: {str(step_error)}")
+                    logger.error(f"执行步骤 {step} 失败: {str(step_error)}")
             
-            # 6. Save original image copy
+            # 6. 保存原始图片副本
             original_copy_path = os.path.join(self.config.output_dir, f"{name_without_ext}_original.png")
             self.image_processor.save_image(original_image, original_copy_path)
-            logger.info(f"Original image saved to: {original_copy_path}")
+            logger.info(f"原始图片保存到: {original_copy_path}")
             
-            # 7. Save processed image
+            # 7. 保存处理后的图片
             processed_path = os.path.join(self.config.output_dir, f"{name_without_ext}_processed.png")
             self.image_processor.save_image(processed_image, processed_path)
-            logger.info(f"Processed image saved to: {processed_path}")
+            logger.info(f"处理后的图片保存到: {processed_path}")
             
-            # 8. Resize to target size (if not already done)
+            # 8. 缩放到目标尺寸（如果还没有执行过）
             if "resize_square" not in executed_steps and "default_process" not in executed_steps:
                 resized_path = os.path.join(self.config.output_dir, f"{name_without_ext}_{self.config.target_size[0]}x{self.config.target_size[1]}.png")
                 resized_image = self.image_processor.resize(processed_image, self.config.target_size)
                 self.image_processor.save_image(resized_image, resized_path)
-                logger.info(f"Image resized and saved to: {resized_path}")
+                logger.info(f"图片缩放完成，保存到: {resized_path}")
             
-            # 9. Generate resource metadata
+            # 9. 生成资源元数据
             metadata_path = self.code_sync.generate_metadata(
                 asset_name=name_without_ext,
                 original_path=file_path,
                 prompt="",
                 process_steps=executed_steps
             )
-            logger.info(f"Resource metadata generated: {metadata_path}")
+            logger.info(f"资源元数据生成完成: {metadata_path}")
             
-            # 11. Add to asset list for generating C++ header files
+            # 11. 添加到资源列表，用于生成C++头文件
             if name_without_ext not in self.asset_list:
                 self.asset_list.append(name_without_ext)
-                # Update C++ header files
+                # 更新C++头文件
                 header_paths = self.code_sync.generate_cpp_header(self.asset_list)
                 for path in header_paths:
-                    logger.info(f"C++ header file updated: {path}")
+                    logger.info(f"C++头文件更新完成: {path}")
             
-            logger.info(f"Image processing workflow completed: {file_path}")
+            logger.info(f"图片处理流程全部完成: {file_path}")
             
         except Exception as e:
-            logger.error(f"Error processing image: {file_path}, Error info: {str(e)}")
+            logger.error(f"处理图片时发生错误: {file_path}, 错误信息: {str(e)}")
 
 def main():
-    """
-    Main function, starts the pipeline
-    """
-    # Load configuration
+    """主函数，启动流水线"""
+    # 加载配置
     config = Config()
     
-    # Create output directories
+    # 创建输出目录
     os.makedirs(config.output_dir, exist_ok=True)
     os.makedirs(config.watch_dir, exist_ok=True)
     
-    logger.info("AmberPipeline AI MVP Started")
-    logger.info(f"Watching directory: {config.watch_dir}")
-    logger.info(f"Output directory: {config.output_dir}")
-    logger.info(f"Target size: {config.target_size[0]}x{config.target_size[1]}")
+    logger.info("AmberPipeline AI MVP 启动")
+    logger.info(f"监视目录: {config.watch_dir}")
+    logger.info(f"输出目录: {config.output_dir}")
+    logger.info(f"目标尺寸: {config.target_size[0]}x{config.target_size[1]}")
     
-    # Create event handler
+    # 创建事件处理器
     event_handler = ImageProcessingHandler(config)
     
-    # Create observer
+    # 创建观察者
     observer = Observer()
     observer.schedule(event_handler, config.watch_dir, recursive=False)
     
-    # Start observer
+    # 启动观察者
     observer.start()
     
     try:
@@ -208,30 +201,29 @@ def main():
             time.sleep(1)
     except KeyboardInterrupt:
         observer.stop()
-        logger.info("AmberPipeline AI Stopped")
+        logger.info("AmberPipeline AI 已停止")
     
     observer.join()
 
-def process_single_file(file_path):
+def start_gui():
     """
-    Process a single file
+    启动GUI界面
+    """
+    import sys
+    from PyQt5.QtWidgets import QApplication
+    from gui.main_window import AmberPipelineGUI
     
-    Args:
-        file_path: File path
-    """
-    config = Config()
-    handler = ImageProcessingHandler(config)
-    handler._process_image(file_path)
+    app = QApplication(sys.argv)
+    gui = AmberPipelineGUI()
+    gui.show()
+    sys.exit(app.exec_())
 
 if __name__ == "__main__":
     import sys
     
-    # Check if there are command line arguments
-    if len(sys.argv) > 1:
-        # Process specified file
-        file_path = sys.argv[1]
-        print(f"Processing file directly: {file_path}")
-        process_single_file(file_path)
+    # 检查命令行参数
+    if len(sys.argv) > 1 and sys.argv[1] == "--gui":
+        start_gui()
     else:
-        # Start in watch mode
+        # 默认以命令行模式启动
         main()

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-AmberPipeline AI - Normal Map Generation Module
-Generate PBR normal maps from 2D images, supporting multiple generation algorithms
+AmberPipeline AI - 法线贴图生成模块
+从2D图像生成PBR法线贴图，支持多种生成算法
 """
 
 import os
@@ -9,14 +9,14 @@ import numpy as np
 from PIL import Image, ImageFilter
 
 class NormalMapGenerator:
-    """Normal Map Generation Class"""
+    """法线贴图生成类"""
     
     def __init__(self, config):
         """
-        Initialize Normal Map Generator
+        初始化法线贴图生成器
         
         Args:
-            config: Configuration object
+            config: 配置对象
         """
         self.config = config
     

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-AmberPipeline AI - Basic Image Processing Module
-Provides basic image processing functions including loading, saving, resizing, format conversion, etc.
+AmberPipeline AI - 图像处理基础模块
+提供基础的图像处理功能，包括图片加载、保存、缩放、格式转换等
 """
 
 import os
@@ -9,14 +9,14 @@ from PIL import Image, ImageOps, ImageDraw, ImageFilter
 import numpy as np
 
 class ImageProcessor:
-    """Image Processing Class"""
+    """图像处理类"""
     
     def __init__(self, config):
         """
-        Initialize Image Processing Class
+        初始化图像处理类
         
         Args:
-            config: Configuration object
+            config: 配置对象
         """
         self.config = config
     

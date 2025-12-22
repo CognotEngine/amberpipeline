@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-AmberPipeline AI - Code Sync Module
-Key module connecting Python tools and C++ game projects
-Generates C++ header files and resource metadata
+AmberPipeline AI - 代码同步模块
+连接Python工具和C++游戏项目的关键模块
+生成C++头文件和资源元数据
 """
 
 import os
@@ -11,18 +11,18 @@ from datetime import datetime
 
 class CodeSync:
     """
-    Code Sync Class
-    Generates C++ header files and resource metadata
+    代码同步类
+    用于生成C++头文件和资源元数据
     """
     
     def __init__(self, output_dir, cpp_header_dir, compiled_dir):
         """
-        Initialize Code Synchronizer
+        初始化代码同步器
         
         Args:
-            output_dir: Resource output directory
-            cpp_header_dir: C++ header file output directory
-            compiled_dir: Final compilation output directory
+            output_dir: 资源输出目录
+            cpp_header_dir: C++头文件输出目录
+            compiled_dir: 最终编译输出目录
         """
         self.output_dir = output_dir
         self.cpp_header_dir = cpp_header_dir
