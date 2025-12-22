@@ -2,7 +2,7 @@
 # AmberPipeline AI
 
 AmberPipeline AI is a middleware that connects the "AI creative end" with the "game engine runtime end", aiming to eliminate the gap between AI-generated resources and industrial game development, enabling fully automated conversion of assets from **Prompt to Binary**.
-
+[ui](https://github.com/CognotEngine/amberpipeline/blob/main/Sorted/123.png)
 ## Core Workflow
 
 The entire process is divided into four stages, connected by Agents:
