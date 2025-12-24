@@ -4,7 +4,7 @@
   <img src="Sorted/LOGO.jpeg" alt="amber" width="300">
 </div>
 
-AmberPipeline AI is a middleware that connects the "AI creative end" with the "game engine runtime end", aiming to eliminate the gap between AI-generated resources and industrial game development, enabling fully automated conversion of assets from **Prompt to Binary**.
+AmberPipeline is a middleware that connects the "AI creative end" with the "game engine runtime end", aiming to eliminate the gap between AI-generated resources and industrial game development, enabling fully automated conversion of assets from **Prompt to Binary**.
 
 ![ui](Sorted/123.png) 
 
@@ -223,4 +223,4 @@ Thanks to all developers and users who have contributed to the AmberPipeline pro
 
 ---
 
-**AmberPipeline AI** - Seamlessly connecting AI-generated resources to game engine development 🚀
+**AmberPipeline ** - Seamlessly connecting AI-generated resources to game engine development 🚀
