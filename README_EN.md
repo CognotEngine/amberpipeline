@@ -22,7 +22,7 @@ By integrating advanced AI image segmentation technology and an intuitive layer 
 
 ### Main Interface
 
-![Main Interface](https://github.com/CognotEngine/amberpipeline/blob/main/input/1.pnge)
+![Main Interface](https://github.com/CognotEngine/amberpipeline/blob/main/input/1.png)
 
 ### Image Segmentation Feature
 
