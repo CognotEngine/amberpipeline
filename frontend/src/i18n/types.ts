@@ -1,10 +1,10 @@
 /**
- * 语言类型定义
+ * Language type definition
  */
 export type LanguageCode = 'zh-CN' | 'en' | 'ja';
 
 /**
- * 翻译资源类型 - 支持嵌套结构
+ * Translation resource type - supports nested structure
  */
 export type TranslationResources = {
   [K in LanguageCode]: {
@@ -15,7 +15,7 @@ export type TranslationResources = {
 };
 
 /**
- * 语言配置类型
+ * Language configuration type
  */
 export interface LanguageConfig {
   code: LanguageCode;

@@ -92,7 +92,9 @@ const getInitialTheme = (): 'light' | 'dark' => {
 };
 
 // 创建应用状态存储
-export const useAppStore = create<AppState & AppActions>((set) => {
+  export const useAppStore = create<AppState & AppActions>((set) => {
+    // 从localStorage获取保存的语言偏好
+    const savedLanguage = localStorage.getItem('language-preference') as LanguageCode || 'zh-CN';
   // 添加主题管理器监听器，保持状态同步
   addThemeListener((themeId) => {
     set({
@@ -105,7 +107,7 @@ export const useAppStore = create<AppState & AppActions>((set) => {
     currentMode: 'precision-cut',
     isLoading: false,
     theme: getInitialTheme(),
-    language: 'zh-CN',
+    language: savedLanguage,
     selectedImage: null,
     processedImages: [],
     samModel: {
@@ -138,7 +140,10 @@ export const useAppStore = create<AppState & AppActions>((set) => {
     }),
   
     // 语言操作
-    setLanguage: (language) => set({ language }),
+    setLanguage: (language) => {
+      localStorage.setItem('language-preference', language);
+      set({ language });
+    },
   
     // 加载状态
     setLoading: (isLoading) => set({ isLoading }),

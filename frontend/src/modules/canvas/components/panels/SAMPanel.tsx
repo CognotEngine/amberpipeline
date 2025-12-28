@@ -222,7 +222,7 @@ export const SAMPanel: React.FC = () => {
       {/* SAM选择模式 - 前景/背景/套索 */}
       <div className="space-y-2">
         <label className="block text-xs font-medium text-text-secondary">
-          SAM选择模式
+          {t('sam.selectionModeLabel')}
         </label>
         <div className="grid grid-cols-3 gap-2">
           <button
@@ -230,21 +230,21 @@ export const SAMPanel: React.FC = () => {
             onClick={() => dispatch({ type: 'SET_SAM_SELECTION_MODE', payload: 'foreground' })}
             disabled={isProcessing}
           >
-            前景
+            {t('sam.foregroundSelection')}
           </button>
           <button
             className={`px-3 py-2 text-xs rounded transition-colors ${state.samSelectionMode === 'background' ? 'bg-red-600 text-white' : 'bg-surface-hover text-text-primary hover:bg-surface-active'}`}
             onClick={() => dispatch({ type: 'SET_SAM_SELECTION_MODE', payload: 'background' })}
             disabled={isProcessing}
           >
-            背景
+            {t('sam.backgroundSelection')}
           </button>
           <button
             className={`px-3 py-2 text-xs rounded transition-colors ${state.samSelectionMode === 'lasso' ? 'bg-blue-600 text-white' : 'bg-surface-hover text-text-primary hover:bg-surface-active'}`}
             onClick={() => dispatch({ type: 'SET_SAM_SELECTION_MODE', payload: 'lasso' })}
             disabled={isProcessing}
           >
-            套索
+            {t('sam.lassoSelection')}
           </button>
         </div>
       </div>

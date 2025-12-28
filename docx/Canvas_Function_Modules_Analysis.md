@@ -89,23 +89,23 @@ const handleWheel = (event: React.WheelEvent) => {
   
   let nextIndex;
   if (event.deltaY > 0) {
-    nextIndex = currentIndex < tabs.length - 1 ? currentIndex + 1 : 0;
+    nextIndex = Math.min(currentIndex + 1, tabs.length - 1);
   } else {
-    nextIndex = currentIndex > 0 ? currentIndex - 1 : tabs.length - 1;
+    nextIndex = Math.max(currentIndex - 1, 0);
   }
   
   handleSelectTab(tabs[nextIndex].id);
 };
 ```
 
-## 4. 变迁连接的名称定义功能逻辑
+## 4. 骨骼层级/父子关系定义功能逻辑
 
 ### 实现位置
 - `f:\goting\AmberPipeline\frontend\src\modules\canvas\components\Renderers\StageCRenderer.tsx`
 
 ### 核心功能
-- **骨骼点连接**：在骨骼绑定模式下，连接两个骨骼点形成变迁
-- **连接命名**：为连接的变迁定义名称
+- **骨骼点连接**：在骨骼绑定模式下，连接两个骨骼点形成父子关系
+- **连接命名**：为骨骼连接定义名称
 - **权重编辑**：调整连接的权重值
 
 ### 核心实现
@@ -173,9 +173,10 @@ const connectSkeletonPoints = (point1: SkeletonPoint, point2: SkeletonPoint) => 
 - **触发事件**：文件菜单新建或标签栏添加按钮点击
 - **数据流向**：
   1. `MainCanvas.tsx` 中的 `handleFileNew` 或 `TabSystem.tsx` 中的 `handleCreateNewTab` 被调用
-  2. 调用 `createTab` 函数更新标签页列表
-  3. 新标签页数据通过 Props 传递给 `TabSystem` 组件
-  4. `TabSystem` 重新渲染，显示新创建的标签
+  2. **统一调用入口**：两个函数都调用 `useTabSystem.ts` 中的 `createTab` 函数，确保创建逻辑一致
+  3. **ID 生成**：`createTab` 函数使用 `nanoid(8)` 生成唯一的标签 ID
+  4. 新标签页数据通过 Props 传递给 `TabSystem` 组件
+  5. `TabSystem` 重新渲染，显示新创建的标签
 
 ### 2. 画布切换与工具栏同步联动
 - **触发事件**：标签栏点击标签或滚轮切换
@@ -194,7 +195,7 @@ const connectSkeletonPoints = (point1: SkeletonPoint, point2: SkeletonPoint) => 
   3. 父组件更新标签页列表状态
   4. 画布内容根据新的标签页状态进行调整
 
-### 4. 变迁连接与画布渲染联动
+### 4. 骨骼层级定义与画布渲染联动
 - **触发事件**：用户在骨骼绑定模式下连接骨骼点
 - **数据流向**：
   1. `StageCRenderer.tsx` 中的 `connectSkeletonPoints` 被调用
@@ -219,7 +220,7 @@ const connectSkeletonPoints = (point1: SkeletonPoint, point2: SkeletonPoint) => 
 用户操作 → 标签双击/关闭按钮 → handleRenameTab/handleCloseTab → onTabRename/onTabClose → tabs 状态更新 → TabSystem 重新渲染
 ```
 
-### 4. 变迁连接流程
+### 4. 骨骼层级定义流程
 ```
 用户操作 → 连接骨骼点 → connectSkeletonPoints → dispatch 更新 CanvasContext → 画布重新渲染 → 连接名称显示
 ```
@@ -236,15 +237,20 @@ const connectSkeletonPoints = (point1: SkeletonPoint, point2: SkeletonPoint) => 
 - **使用场景**：标签创建、关闭、切换、重命名等操作
 - **核心回调**：`onTabCreate`、`onTabClose`、`onTabSelect`、`onTabRename`
 
-### 3. 基于 Context 的全局状态管理
+### 3. 基于 Context 的 Tab 隔离状态管理
 - **实现位置**：`f:\goting\AmberPipeline\frontend\src\modules\canvas\composables\CanvasContext.tsx`
-- **使用场景**：骨骼点数据、图层数据等全局共享数据
-- **更新机制**：通过 `useReducer` 和 `dispatch` 模式更新全局状态
+- **使用场景**：骨骼点数据、图层数据等画布相关数据，按 Tab ID 隔离存储
+- **核心实现**：将状态存储为 `Record<string, CanvasState>` 结构，每个 Tab 拥有独立的画布状态
+- **更新机制**：通过 `tabDispatch` 函数仅更新当前激活 Tab 的状态，确保状态隔离
+- **生命周期管理**：提供 `createTabState` 和 `deleteTabState` 方法管理 Tab 状态的创建和销毁
+- **状态同步**：通过 `activeTabId` 确定当前操作的 Tab 状态，实现 Tab 切换时的状态同步
 
 ### 4. 基于自定义 Hook 的状态封装
 - **实现位置**：`f:\goting\AmberPipeline\frontend\src\modules\canvas\composables\useTabSystem.ts`
 - **使用场景**：标签页系统的核心逻辑封装
 - **功能**：提供标签页的创建、选择、关闭、更新等核心操作
+- **ID 生成**：使用 `nanoid(8)` 生成唯一的标签页 ID，替代 `Date.now()`，确保在高并发场景下的 ID 唯一性
+- **统一接口**：提供 `createTab` 函数作为统一的标签创建入口，确保所有标签创建操作都使用相同的 ID 生成策略和参数处理逻辑
 
 ## 代码结构与组件关系
 

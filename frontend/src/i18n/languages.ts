@@ -1,10 +1,10 @@
 /**
- * 语言配置
+ * Language configuration
  */
 import { LanguageConfig } from './types';
 
 /**
- * 可用语言列表
+ * List of available languages
  */
 export const languages: LanguageConfig[] = [
   {
@@ -25,13 +25,13 @@ export const languages: LanguageConfig[] = [
 ];
 
 /**
- * 获取语言配置
+ * Get language configuration
  */
 export const getLanguageConfig = (code: string): LanguageConfig | undefined => {
   return languages.find(lang => lang.code === code);
 };
 
 /**
- * 默认语言
+ * Default language
  */
 export const defaultLanguage: LanguageConfig = languages[0];

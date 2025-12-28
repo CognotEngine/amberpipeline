@@ -22,17 +22,45 @@ export const useTranslation = () => {
    * @returns 翻译后的文本
    */
   const t = useCallback((key: string, options?: Record<string, string | number>): string => {
-    const translationValue = resources[language]?.translation[key];
-    let translation: string = typeof translationValue === 'string' ? translationValue : key;
-
+    // 获取当前语言的翻译资源
+    const translation = resources[language]?.translation;
+    if (!translation) return key;
+    
+    let translationValue: any;
+    
+    // 1. 首先尝试直接查找完整的键
+    if (key in translation && typeof translation[key] === 'string') {
+      translationValue = translation[key];
+    } else {
+      // 2. 如果直接查找失败，尝试解析嵌套键
+      const keys = key.split('.');
+      let current: string | Record<string, any> = translation;
+      let found = true;
+      
+      for (const k of keys) {
+        // 只有当current是对象时才能继续遍历
+        if (current && typeof current === 'object' && !Array.isArray(current) && k in current) {
+          // 使用类型断言处理嵌套对象或字符串
+          current = current[k] as string | Record<string, any>;
+        } else {
+          found = false;
+          break;
+        }
+      }
+      
+      // 确保最终值是字符串
+      translationValue = found && typeof current === 'string' ? current : key;
+    }
+    
     // 替换占位符
+    let result = translationValue;
     if (options) {
       Object.entries(options).forEach(([placeholder, value]) => {
-        translation = translation.replace(`{{${placeholder}}}`, String(value));
+        result = result.replace(`{{${placeholder}}}`, String(value));
       });
     }
 
-    return translation;
+    return result;
   }, [language]);
 
   /**
@@ -56,15 +84,44 @@ export const useTranslation = () => {
 export const getTranslation = (key: string, options?: Record<string, string | number>): string => {
   // 从本地存储获取当前语言
   const savedLanguage = localStorage.getItem('language-preference') as LanguageCode || 'zh-CN';
-  const translationValue = resources[savedLanguage]?.translation[key];
-  let translation: string = typeof translationValue === 'string' ? translationValue : key;
-
+  
+  // 获取当前语言的翻译资源
+  const translation = resources[savedLanguage]?.translation;
+  if (!translation) return key;
+  
+  let translationValue: any;
+  
+  // 1. 首先尝试直接查找完整的键
+  if (key in translation && typeof translation[key] === 'string') {
+    translationValue = translation[key];
+  } else {
+    // 2. 如果直接查找失败，尝试解析嵌套键
+    const keys = key.split('.');
+    let current: string | Record<string, any> = translation;
+    let found = true;
+    
+    for (const k of keys) {
+      // 只有当current是对象时才能继续遍历
+      if (current && typeof current === 'object' && !Array.isArray(current) && k in current) {
+        // 使用类型断言处理嵌套对象或字符串
+        current = current[k] as string | Record<string, any>;
+      } else {
+        found = false;
+        break;
+      }
+    }
+    
+    // 确保最终值是字符串
+    translationValue = found && typeof current === 'string' ? current : key;
+  }
+  
   // 替换占位符
+  let result = translationValue;
   if (options) {
     Object.entries(options).forEach(([placeholder, value]) => {
-      translation = translation.replace(`{{${placeholder}}}`, String(value));
+      result = result.replace(`{{${placeholder}}}`, String(value));
     });
   }
 
-  return translation;
+  return result;
 };

@@ -93,7 +93,7 @@ export const MainCanvas: React.FC<MainCanvasProps> = ({
         dispatch({
           type: 'ADD_LAYER',
           payload: {
-            name: '背景图层',
+            name: t('layer.background'),
             type: 'background',
             zIndex: 0,
             opacity: 1,
@@ -247,21 +247,6 @@ export const MainCanvas: React.FC<MainCanvasProps> = ({
           onMouseUp={endDrag}
           onMouseLeave={endDrag}
         >
-          {/* 背景层 */}
-          <div className={sx(['absolute', 'inset-0', 'transition-all', 'duration-500', 'z-0'])} 
-               style={{ 
-                 background: activeTab?.mode === 'precision-cut' ? 
-                   'repeating-conic-gradient(#252525 0 25%, #202020 0 50%) 50%/60px 60px' : 
-                 activeTab?.mode === 'character-layer' ? 
-                   'repeating-conic-gradient(#2A2A2A 0 25%, #222222 0 50%) 50%/40px 40px' : 
-                 activeTab?.mode === 'skeleton-binding' ? 
-                   'repeating-conic-gradient(#282828 0 25%, #232323 0 50%) 50%/50px 50px' : 
-                 activeTab?.mode === 'animation' ? 
-                   'repeating-conic-gradient(#262626 0 25%, #212121 0 50%) 50%/45px 45px' : 
-                   'repeating-conic-gradient(#222222 0 25%, #1A1A1A 0 50%) 50%/40px 40px' 
-               }} 
-          />
-          
           {/* 网格覆盖层 */}
           <GridOverlay 
             width={activeTab?.content?.width || 800}
@@ -276,6 +261,21 @@ export const MainCanvas: React.FC<MainCanvasProps> = ({
               className={sx(['relative', 'transition-transform', 'duration-100', 'w-full', 'h-full'])}
               style={transformStyle}
             >
+              {/* 背景层 - 移到内容层内部，与内容一起变换 */}
+              <div className={sx(['absolute', 'inset-0', 'transition-all', 'duration-500', 'z-0'])} 
+                   style={{ 
+                     background: activeTab?.mode === 'precision-cut' ? 
+                       'repeating-conic-gradient(#1F1F1F 0 25%, #1D1D1D 0 50%) 50%/60px 60px' : 
+                     activeTab?.mode === 'character-layer' ? 
+                       'repeating-conic-gradient(#212121 0 25%, #1F1F1F 0 50%) 50%/40px 40px' : 
+                     activeTab?.mode === 'skeleton-binding' ? 
+                       'repeating-conic-gradient(#202020 0 25%, #1E1E1E 0 50%) 50%/50px 50px' : 
+                     activeTab?.mode === 'animation' ? 
+                       'repeating-conic-gradient(#1F1F1F 0 25%, #1D1D1D 0 50%) 50%/45px 45px' : 
+                       'repeating-conic-gradient(#202020 0 25%, #1E1E1E 0 50%) 50%/40px 40px' 
+                   }} 
+              />
+              
               {/* RenderDispatcher组件 - 根据当前模式动态渲染对应的图层 */}
               <RenderDispatcher 
                 mode={currentMode}

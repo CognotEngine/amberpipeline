@@ -355,6 +355,7 @@ export const Modal: React.FC<ModalProps> = ({
         {/* 模态框内容 */}
         <div 
           className={cn(
+            sx('bg-surface'),
             contentPadding,
             scrollable && 'overflow-y-auto',
             centered && 'flex-1'

@@ -60,7 +60,7 @@ export const InpaintSettings: React.FC = () => {
         <select
           value={inpaintSettings.algorithm}
           onChange={(e) => handleAlgorithmChange(e.target.value as 'Lama' | 'SD Inpaint')}
-          className="w-full text-sm border border-border rounded px-3 py-2 bg-surface text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+          className="w-full text-sm border border-border rounded px-3 py-2 bg-surface text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent hover:border-border-light transition-colors"
         >
           <option value="Lama">{t('stageA.lamaAlgorithm')}</option>
           <option value="SD Inpaint">{t('stageA.sdInpaintAlgorithm')}</option>

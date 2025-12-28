@@ -99,19 +99,19 @@ export const DynamicToolbar: React.FC<DynamicToolbarProps> = ({
     <Card 
       className={cn(
         sx([
-          'absolute', 
-          'bg.surface', 
-          'border', 
-          'border.border', 
-          'rounded-lg', 
-          'p-2', 
-          'space-y-2', 
-          'shadow-md', 
-          'z-20',
-          'transition-all',
-          'duration-200',
-          'hover:shadow-lg'
-        ]),
+        'absolute', 
+        'bg-[var(--color-surface)]', 
+        'border', 
+        'border-[var(--color-border)]', 
+        'rounded-lg', 
+        'p-2', 
+        'space-y-2', 
+        'shadow-md', 
+        'z-5',
+        'transition-all',
+        'duration-200',
+        'hover:shadow-lg'
+      ]),
         positionClass[position],
         className
       )}

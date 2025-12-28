@@ -1,10 +1,10 @@
 /**
- * 语义化动画令牌和过渡工具
- * 提供统一的动画和过渡效果配置，确保应用中动画的一致性
+ * Semantic animation tokens and transition utilities
+ * Provide unified animation and transition effect configurations to ensure consistency of animations in the application
  */
 
 /**
- * 过渡时长枚举
+ * Transition duration enum
  */
 export const TransitionDuration = {
   FAST: 'duration-150',

@@ -100,7 +100,6 @@ export const GlobalMenu: React.FC<GlobalMenuProps> = ({
             alt="Logo" 
             className="w-8 h-8" 
           />
-          <span className="ml-2 text-textPrimary text-sm font-medium">AmberPipeline</span>
         </div>
       </div>
       

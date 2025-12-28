@@ -107,7 +107,7 @@ export const LayerManager: React.FC = () => {
     dispatch({
       type: 'ADD_LAYER',
       payload: {
-        name: `图层 ${state.layers.length + 1}`,
+        name: t('layer.defaultName', { index: state.layers.length + 1 }),
         type: 'object',
         zIndex: state.layers.length,
         opacity: 1,

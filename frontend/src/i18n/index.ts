@@ -1,6 +1,6 @@
 /**
- * 国际化(i18n)模块
- * 支持中文、英语、日语三种语言
+ * Internationalization (i18n) module
+ * Supports Chinese, English, and Japanese
  */
 
 export * from './types';
