@@ -48,6 +48,11 @@ yarn-error.log*
 # Environment variables
 .env
 .env.local
+
+# Large model files
+models/*.pt
+models/*.pth
+models/*.ckpt
 .env.*.local
 
 # IDE
