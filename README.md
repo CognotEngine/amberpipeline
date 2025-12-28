@@ -21,7 +21,7 @@
 
 ### 主界面
 
-![主界面](https://github.com/CognotEngine/AmberPipeline/blob/main/input/main_interface.png?raw=true)
+![主界面](https://github.com/CognotEngine/amberpipeline/blob/main/input/1.png)
 
 ### 图像分割功能
 
