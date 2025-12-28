@@ -6,7 +6,6 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![React](https://img.shields.io/badge/React-19-blue.svg)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7.0-blue.svg)](https://www.typescriptlang.org/)
-[![Electron](https://img.shields.io/badge/Electron-33.2.0-blue.svg)](https://www.electronjs.org/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.16-blue.svg)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-6.0.0-blue.svg)](https://vitejs.dev/)
 [![Python](https://img.shields.io/badge/Python-3-blue.svg)](https://www.python.org/)
