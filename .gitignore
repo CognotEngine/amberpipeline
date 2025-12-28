@@ -55,6 +55,10 @@ models/*.pth
 models/*.ckpt
 .env.*.local
 
+# Readme files (local only)
+README.md
+README_CN.md
+
 # IDE
 .idea
 .vscode
