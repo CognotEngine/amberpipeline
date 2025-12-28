@@ -7,6 +7,7 @@ import { Loader2 } from 'lucide-react'
 import { LeftNavigation } from '../components/common/LeftNavigation'
 import { Header } from '../modules/header/Header'
 import { MainCanvas } from '../modules/canvas/MainCanvas'
+import type { Tab } from '../modules/canvas/components/TabBar/TabSystem'
 
 import { StatusBar } from '../components/common/StatusBar'
 import { useSingleShortcut } from '../hooks/useShortcut'
@@ -33,16 +34,13 @@ function App() {
   // 属性面板可见性状态 - 默认收起
   // const [propertiesVisible, setPropertiesVisible] = useState(false)
   
-  // 模拟标签页数据
-  const [tabs, setTabs] = useState([
-    { id: 'tab-1', title: '背景分层', mode: 'precision-cut' as const, content: {} },
-    { id: 'tab-2', title: '部位拆解', mode: 'character-layer' as const, content: {} },
-    { id: 'tab-3', title: '骨骼绑定', mode: 'skeleton-binding' as const, content: {} },
-    { id: 'tab-4', title: '骨骼动画', mode: 'animation' as const, content: {} }
-  ])
+
+
+  // 初始标签页数据（空数组，去掉了模拟画布）
+  const [tabs, setTabs] = useState<Tab[]>([])
   
   // 当前活动标签页
-  const [activeTabId, setActiveTabId] = useState('tab-1')
+  const [activeTabId, setActiveTabId] = useState('')
   
   // 处理新建画布
   const handleNewCanvas = (width: number, height: number, mode: 'precision-cut' | 'character-layer' | 'skeleton-binding' | 'animation') => {
@@ -164,12 +162,7 @@ function App() {
   // Ctrl+S: 保存图片
   useSingleShortcut('Ctrl+S', handleSaveImage, { preventDefault: true })
   
-  // 模拟任务数据
-  const [tasks] = useState([
-    { id: 'task-1', title: '任务 1', filename: 'sample-1.png', progress: 100, status: 'completed' as const, timestamp: Date.now() - 300000 },
-    { id: 'task-2', title: '任务 2', filename: 'sample-2.png', progress: 50, status: 'processing' as const, timestamp: Date.now() - 150000 },
-    { id: 'task-3', title: '任务 3', filename: 'sample-3.png', progress: 0, status: 'pending' as const, timestamp: Date.now() }
-  ])
+
   
   // 系统状态数据
   const [systemStatus] = useState({
@@ -183,7 +176,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <CanvasProvider>
+        <CanvasProvider activeTabId={activeTabId}>
 
           <div className="h-screen flex flex-col bg-background text-foreground">
             {/* 顶部导航栏 */}

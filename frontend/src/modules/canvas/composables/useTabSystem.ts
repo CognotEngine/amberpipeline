@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
+import { nanoid } from 'nanoid';
 
 // 标签页接口
 export interface Tab {
@@ -40,7 +41,7 @@ export const useTabSystem = (
   // 创建新标签页
   const createTab = useCallback((newTab: Omit<Tab, 'id'>) => {
     // 生成唯一ID
-    const id = `tab-${Date.now()}`;
+    const id = `tab-${nanoid(8)}`;
     const tabWithId = { ...newTab, id };
     
     setTabs(prev => [...prev, tabWithId]);

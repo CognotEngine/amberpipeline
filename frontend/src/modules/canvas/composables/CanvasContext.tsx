@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useReducer, ReactNode } from 'react';
+import React, { createContext, useContext, useReducer, useState, useEffect, ReactNode } from 'react';
+
 
 // 定义Stage类型
 export type StageType = 'A' | 'B' | 'C' | 'D';
@@ -355,6 +356,9 @@ interface CanvasContextType {
   getSelectedPoint: () => SkeletonPoint | null;
   getActiveAnimation: () => AnimationClip | null;
   getLayersByZIndex: () => Layer[];
+  // Tab相关方法
+  createTabState: (tabId: string) => void;
+  deleteTabState: (tabId: string) => void;
 }
 
 // 创建Context
@@ -363,13 +367,14 @@ const CanvasContext = createContext<CanvasContextType | undefined>(undefined);
 // 定义Provider属性类型
 interface CanvasProviderProps {
   children: ReactNode;
+  activeTabId: string;
   initialState?: Partial<CanvasState>;
 }
 
 // 创建Provider组件
-export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children, initialState }) => {
-  // 如果没有提供initialState，使用默认的initialState
-  const defaultInitialState = {
+export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children, activeTabId, initialState }) => {
+  // 定义默认初始状态
+  const createDefaultState = (): CanvasState => ({
     activeStage: 'A',
     selectedTool: 'lasso',
     activeTool: 'move',
@@ -407,35 +412,81 @@ export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children, initia
     fps: 24,
     onionSkinFrames: 2,
     samSelectionMode: 'foreground'
+  });
+  
+  // 合并初始状态
+  const mergedInitialState = initialState ? { ...createDefaultState(), ...initialState } : createDefaultState();
+  
+  // 按Tab ID存储的状态
+  const [tabStates, setTabStates] = useState<Record<string, CanvasState>>({
+    [activeTabId]: mergedInitialState
+  });
+  
+  // 确保当前激活的Tab有状态
+  const ensureActiveTabState = () => {
+    if (!tabStates[activeTabId]) {
+      setTabStates(prev => ({ ...prev, [activeTabId]: createDefaultState() }));
+    }
   };
   
-  const mergedInitialState = initialState ? { ...defaultInitialState, ...initialState } : defaultInitialState;
-  const [state, dispatch] = useReducer(canvasReducer, mergedInitialState as CanvasState);
+  // 当activeTabId变化时，确保该Tab有状态
+  useEffect(() => {
+    ensureActiveTabState();
+  }, [activeTabId]);
+  
+  // 获取当前激活的Tab的状态
+  const currentState = tabStates[activeTabId] || createDefaultState();
+  
+  // 自定义dispatch函数，仅更新当前激活的Tab的状态
+  const tabDispatch = (action: CanvasAction) => {
+    ensureActiveTabState();
+    setTabStates(prev => ({
+      ...prev,
+      [activeTabId]: canvasReducer(prev[activeTabId] || createDefaultState(), action)
+    }));
+  };
 
   // 辅助方法
   const getSelectedLayer = () => {
-    return state.layers.find(layer => layer.id === state.selectedLayerId) || null;
+    return currentState.layers.find(layer => layer.id === currentState.selectedLayerId) || null;
   };
 
   const getSelectedPoint = () => {
-    return state.skeletonPoints.find(point => point.id === state.selectedPointId) || null;
+    return currentState.skeletonPoints.find(point => point.id === currentState.selectedPointId) || null;
   };
 
   const getActiveAnimation = () => {
-    return state.animations.find(animation => animation.id === state.activeAnimationId) || null;
+    return currentState.animations.find(animation => animation.id === currentState.activeAnimationId) || null;
   };
 
   const getLayersByZIndex = () => {
-    return [...state.layers].sort((a, b) => a.zIndex - b.zIndex);
+    return [...currentState.layers].sort((a, b) => a.zIndex - b.zIndex);
+  };
+  
+  // Tab状态管理方法
+  const createTabState = (tabId: string) => {
+    if (!tabStates[tabId]) {
+      setTabStates(prev => ({ ...prev, [tabId]: createDefaultState() }));
+    }
+  };
+  
+  const deleteTabState = (tabId: string) => {
+    setTabStates(prev => {
+      const newStates = { ...prev };
+      delete newStates[tabId];
+      return newStates;
+    });
   };
 
   const value: CanvasContextType = {
-    state,
-    dispatch,
+    state: currentState,
+    dispatch: tabDispatch,
     getSelectedLayer,
     getSelectedPoint,
     getActiveAnimation,
-    getLayersByZIndex
+    getLayersByZIndex,
+    createTabState,
+    deleteTabState
   };
 
   return <CanvasContext.Provider value={value}>{children}</CanvasContext.Provider>;

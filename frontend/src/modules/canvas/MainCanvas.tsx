@@ -7,25 +7,17 @@ import { RenderDispatcher } from './components/Renderers/RenderDispatcher';
 import { SmartPanel } from './components/SmartPanel';
 import { useCanvasContext } from './composables/CanvasContext';
 import { CanvasThemeProvider } from './composables/CanvasThemeProvider';
-
+import { DynamicToolbar } from './components/DynamicToolbar';
+import { useTools } from './composables/useTools';
 
 import GridOverlay from './components/GridOverlay';
 import { Button, Card } from '../../components/ui';
 import { sx } from '../../themes/themeUtils';
-// 导入Lucide图标
-import { 
-  Target, Ruler, Palette, Brush, Magnet, Link, 
-  Bone, Scale, Settings, User, CircleDot, 
-  Layers, Move, Search, Zap, Undo, Redo 
-} from 'lucide-react';
+import { TabSystem } from './components/TabBar/TabSystem';
+// 导入Lucide图标已在useTools中完成
 
-// 定义Tab接口
-export interface Tab {
-  id: string;
-  title: string;
-  mode: 'precision-cut' | 'character-layer' | 'skeleton-binding' | 'animation';
-  content: any;
-}
+// 导入Tab接口
+type Tab = import('./components/TabBar/TabSystem').Tab;
 
 interface MainCanvasProps {
   tabs: Tab[];
@@ -34,6 +26,7 @@ interface MainCanvasProps {
   onTabCreate?: () => void;
   onTabClose?: (tabId: string) => void;
   onTabSelect?: (tabId: string) => void;
+  onTabRename?: (tabId: string, newTitle: string) => void;
   onImport?: () => void;
   onProcessingChange?: (isProcessing: boolean) => void;
   className?: string;
@@ -50,6 +43,7 @@ export const MainCanvas: React.FC<MainCanvasProps> = ({
   onTabCreate,
   onTabClose,
   onTabSelect,
+  onTabRename,
   // onImport,
   // onProcessingChange,
   className
@@ -63,13 +57,20 @@ export const MainCanvas: React.FC<MainCanvasProps> = ({
     activeTabId,
     createTab,
     closeTab,
-    selectTab
+    selectTab,
+    updateTab
   } = useTabSystem(initialTabs, {
     initialActiveTabId,
     onTabCreate,
     onTabClose,
     onTabSelect
   });
+  
+  // 处理标签页重命名
+  const handleTabRename = (tabId: string, newTitle: string) => {
+    updateTab(tabId, { title: newTitle });
+    onTabRename?.(tabId, newTitle);
+  };
   
   // 将activeTab转换为状态变量，确保标签页切换时能正确触发更新
   const [activeTab, setActiveTab] = React.useState<Tab | undefined>(
@@ -155,51 +156,10 @@ export const MainCanvas: React.FC<MainCanvasProps> = ({
   // 从transform中提取scale、x、y
   const { scale, x, y } = transform;
   
-  // 工具列表定义
-  const tools = React.useMemo(() => [
-    // Stage A tools
-    { id: 'sam-select', name: t('canvas.tools.samSelect'), icon: Target, shortcut: 'S', stage: 'A' },
-    { id: 'depth-mark', name: t('canvas.tools.depthMark'), icon: Ruler, shortcut: 'D', stage: 'A' },
-    { id: 'inpaint', name: t('canvas.tools.inpaint'), icon: Palette, shortcut: 'I', stage: 'A' },
-    
-    // Stage B tools
-    { id: 'semantic-brush', name: t('canvas.tools.semanticBrush'), icon: Brush, shortcut: 'B', stage: 'B' },
-    { id: 'edge-snap', name: t('canvas.tools.edgeSnap'), icon: Magnet, shortcut: 'E', stage: 'B' },
-    { id: 'joint-complete', name: t('canvas.tools.jointComplete'), icon: Link, shortcut: 'J', stage: 'B' },
-    
-    // Stage C tools
-    { id: 'bone-draw', name: t('canvas.tools.boneDraw'), icon: Bone, shortcut: 'O', stage: 'C' },
-    { id: 'weight-paint', name: t('canvas.tools.weightPaint'), icon: Scale, shortcut: 'W', stage: 'C' },
-    { id: 'ik-setup', name: t('canvas.tools.ikSetup'), icon: Settings, shortcut: 'K', stage: 'C' },
-    
-    // Stage D tools
-    { id: 'pose-adjust', name: t('canvas.tools.poseAdjust'), icon: User, shortcut: 'P', stage: 'D' },
-    { id: 'keyframe', name: t('canvas.tools.keyframe'), icon: CircleDot, shortcut: 'F', stage: 'D' },
-    { id: 'onion-skin', name: t('canvas.tools.onionSkin'), icon: Layers, shortcut: 'N', stage: 'D' },
-    
-    // Common tools
-    { id: 'move', name: t('canvas.tools.move'), icon: Move, shortcut: 'V' },
-    { id: 'zoom', name: t('canvas.tools.zoom'), icon: Search, shortcut: 'Z' },
-    { id: 'grid', name: t('canvas.tools.grid'), icon: Zap, shortcut: 'G' },
-    { id: 'undo', name: t('canvas.tools.undo'), icon: Undo, shortcut: 'Ctrl+Z' },
-    { id: 'redo', name: t('canvas.tools.redo'), icon: Redo, shortcut: 'Ctrl+Y' },
-  ], [t]);
+  // 使用工具Hook获取工具列表
+  const { tools } = useTools();
 
-  // 获取当前阶段的工具列表
-  const getCurrentStageTools = () => {
-    const stageMap = {
-      'precision-cut': 'A',
-      'character-layer': 'B',
-      'skeleton-binding': 'C',
-      'animation': 'D'
-    };
-    const currentStage = stageMap[currentMode] || 'A';
-    
-    return tools.filter(tool => 
-      !tool.stage || tool.stage === currentStage
-    );
-  };
-
+  
   // 处理工具选择
   const handleToolSelect = (toolId: string) => {
     if (toolId === 'grid') {
@@ -236,69 +196,31 @@ export const MainCanvas: React.FC<MainCanvasProps> = ({
       
       {/* 中间主区域 */}
       <div className="flex-1 flex flex-col">
-        {/* 标签页系统 - 类似于网页窗口 */}
-        <div className={sx(['bg.surface', 'border-b', 'border.border', 'overflow-x-auto'])}>
-          <div className={sx(['flex', 'items-center', 'h-8', 'px-2', 'space-x-1'])}>
-            {tabs.map((tab) => (
-              <div
-                key={tab.id}
-                className={cn(
-                  sx(['flex', 'items-center', 'space-x-2', 'px-3', 'py-1.5', 'rounded-t-md', 'cursor-pointer', 'transition-all', 'duration-200', 'whitespace-nowrap', 'relative']),
-                  tab.id === activeTabId
-                    ? sx(['bg.background', 'text.text-primary', 'border-x', 'border-t', 'border.border', '-mb-px', 'shadow-sm'])
-                    : sx(['bg.surface-elevated', 'text.text-secondary', 'hover:bg.hover'])
-                )}
-              >
-                {/* 标签页标题 */}
-                <button
-                  className={sx(['text-sm'])} 
-                  onClick={() => selectTab(tab.id)}
-                >
-                  {t(`mode.${tab.mode}`)}
-                </button>
-                {/* 标签页关闭按钮 - 仅在悬停时显示 */}
-                <Button
-                  variant="secondary"
-                  size="small"
-                  className={cn(
-                    sx(['w-4', 'h-4', 'flex', 'items-center', 'justify-center', 'rounded-full', 'text.text-tertiary', 'hover:bg.error', 'hover:text.white', 'transition-all', 'duration-200', 'transform', 'hover:scale-110']),
-                    'opacity-0 hover:opacity-100'
-                  )}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    closeTab(tab.id);
-                  }}
-                  title={t('common.close')}
-                >
-                  ✕
-                </Button>
-              </div>
-            ))}
-            {/* 新建标签页按钮 */}
-            <Button
-              variant="secondary"
-              size="small"
-              className={sx(['flex', 'items-center', 'justify-center', 'w-8', 'h-8', 'rounded-full', 'text.text-secondary', 'hover:bg.hover', 'hover:text.text-primary', 'transition-colors'])}
-              onClick={() => {
-                // 创建新标签页，使用当前模式和默认画布尺寸
-                createTab({
-                  title: t('canvas.title', { number: tabs.length + 1 }),
-                  mode: currentMode,
-                  content: {
-                    width: 1920,
-                    height: 1080
-                  }
-                });
-              }}
-              title={t('common.add')}
-            >
-              +
-            </Button>
-            
-            {/* 右侧空间 */}
-            <div className="ml-auto"></div>
-          </div>
-        </div>
+        {/* 标签页系统 - 使用封装的TabSystem组件 */}
+        <TabSystem
+          tabs={tabs}
+          activeTabId={activeTabId}
+          options={{
+            showScrollButtons: true,
+            allowRename: true,
+            maxTabWidth: 200,
+            minTabWidth: 80
+          }}
+          onTabCreate={() => {
+            // 创建新标签页，使用当前模式和默认画布尺寸
+            createTab({
+              title: t('canvas.title', { number: tabs.length + 1 }),
+              mode: currentMode,
+              content: {
+                width: 1920,
+                height: 1080
+              }
+            });
+          }}
+          onTabClose={closeTab}
+          onTabSelect={selectTab}
+          onTabRename={handleTabRename}
+        />
         
         {/* 画布视口 */}
         <div
@@ -415,28 +337,12 @@ export const MainCanvas: React.FC<MainCanvasProps> = ({
             </div>
           </Card>
           
-          {/* 浮动工具栏 - 动态显示当前阶段工具 */}
-          <Card className={sx(['absolute', 'left-4', 'top-1/2', 'transform', '-translate-y-1/2', 'bg.surface', 'border', 'border.border', 'rounded-lg', 'p-2', 'space-y-2', 'shadow-md', 'transition-all', 'duration-200', 'hover:shadow-lg'])}>
-            <div className={sx(['text-xs', 'text.text-secondary', 'mb-2'])}>{t('common.tools')}</div>
-            {getCurrentStageTools().map((tool) => {
-              const IconComponent = tool.icon;
-              return (
-                <Button
-                  key={tool.id}
-                  variant={state.activeTool === tool.id ? "primary" : "secondary"}
-                  size="small"
-                  className={cn(
-                    sx(['w-8', 'h-8', 'rounded', 'hover:bg.hover', 'transition-all', 'duration-200', 'transform', 'hover:scale-105']),
-                    state.activeTool === tool.id ? sx(['bg.accent', 'text.white', 'shadow-md']) : sx(['bg.surface', 'text.text-secondary'])
-                  )}
-                  onClick={() => handleToolSelect(tool.id)}
-                  title={`${tool.name} ${tool.shortcut ? `(${tool.shortcut})` : ''}`}
-                >
-                  <IconComponent size={18} className="text-current" />
-                </Button>
-              );
-            })}
-          </Card>
+          {/* 动态工具栏 - 根据当前阶段显示工具 */}
+          <DynamicToolbar 
+            tools={tools}
+            position="top-left"
+            onToolSelect={handleToolSelect}
+          />
         </div>
         
 

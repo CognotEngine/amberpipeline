@@ -5,6 +5,7 @@ import { EditMenu } from './menus/EditMenu';
 import { SelectMenu } from './menus/SelectMenu';
 import { ViewMenu } from './menus/ViewMenu';
 import { HelpMenu } from './menus/HelpMenu';
+import { useTheme } from '../../themes/themeManager';
 
 interface GlobalMenuProps {
   className?: string;
@@ -25,6 +26,7 @@ export const GlobalMenu: React.FC<GlobalMenuProps> = ({
   onSaveImage 
 }) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const { currentTheme } = useTheme();
 
   /**
    * 切换菜单显示状态
@@ -93,7 +95,11 @@ export const GlobalMenu: React.FC<GlobalMenuProps> = ({
       {/* Logo */}
       <div className="flex items-center flex-shrink-0">
         <div className="mr-[8px] flex items-center">
-          <img src="/favicon.ico" alt="Logo" className="w-8 h-8" />
+          <img 
+            src={currentTheme === 'light' ? '/light.ico' : '/dark.ico'} 
+            alt="Logo" 
+            className="w-8 h-8" 
+          />
           <span className="ml-2 text-textPrimary text-sm font-medium">AmberPipeline</span>
         </div>
       </div>

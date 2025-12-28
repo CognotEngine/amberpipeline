@@ -23,14 +23,16 @@ const CanvasHistoryContext = createContext<CanvasContextWithHistoryType | undefi
 interface CanvasProviderWithHistoryProps {
   children: ReactNode;
   initialState?: Partial<CanvasState>;
+  activeTabId: string;
 }
 
 export const CanvasProviderWithHistory: React.FC<CanvasProviderWithHistoryProps> = ({ 
   children, 
-  initialState 
+  initialState,
+  activeTabId
 }) => {
   return (
-    <CanvasProvider initialState={initialState}>
+    <CanvasProvider initialState={initialState} activeTabId={activeTabId}>
       <HistoryWrapper>{children}</HistoryWrapper>
     </CanvasProvider>
   );

@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { CanvasBackground } from './CanvasBackground';
 import { CanvasTransform } from './CanvasTransform';
 import { useCanvasContext } from '../../composables/CanvasContext';
-import { RiggingToolbar } from '../Overlays/RiggingToolbar';
 import { WeightEditPanel } from '../panels/WeightEditPanel';
 import { sx } from '../../../../themes/themeUtils';
 
