@@ -1,0 +1,21 @@
+{
+    "raw_dir": "Raw",
+    "sorted_dir": "Sorted",
+    "processed_dir": "Processed",
+    "compiled_dir": "Compiled",
+    "watch_dir": "Sorted",
+    "output_dir": "Processed",
+    "models_dir": "models",
+    "cpp_header_dir": "cpp/include",
+    "target_size": [
+        512,
+        512
+    ],
+    "sam_model_path": "models/sam_vit_h_4b8939.pth",
+    "sam_device": "cpu",
+    "sam_confidence_threshold": 0.8,
+    "normal_strength": 1.0,
+    "normal_blur": 0.5,
+    "batch_mode": false,
+    "max_parallel_tasks": 4
+}

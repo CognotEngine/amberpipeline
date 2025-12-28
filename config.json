@@ -1,0 +1,14 @@
+{
+    "watch_dir": "input",
+    "output_dir": "output",
+    "models_dir": "models",
+    "target_size": [
+        512,
+        512
+    ],
+    "sam_model_path": "models/sam2.1_hiera_tiny.pt",
+    "sam_device": "cpu",
+    "sam_confidence_threshold": 0.8,
+    "normal_strength": 1.0,
+    "normal_blur": 0.5
+}

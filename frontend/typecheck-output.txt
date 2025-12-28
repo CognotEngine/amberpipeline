@@ -1,0 +1,626 @@
+
+> amber-pipeline-react@1.0.0 typecheck
+> tsc --noEmit
+
+src/components/common/DragNumber.tsx(2,1): error TS6133: 'cn' is declared but its value is never read.
+src/components/common/LeftNavigation.tsx(76,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/components/common/LeftNavigation.tsx(81,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/components/common/Modal.tsx(32,3): error TS6133: 'closeOnClickOverlay' is declared but its value is never read.
+src/components/common/Modal.tsx(68,21): error TS2304: Cannot find name 'cn'.
+src/components/common/StatusBar.tsx(4,1): error TS6133: 'cn' is declared but its value is never read.
+src/components/common/StatusBar.tsx(47,74): error TS2339: Property 'timestamp' does not exist on type 'Task'.
+src/components/common/StatusBar.tsx(83,47): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/components/common/StatusBar.tsx(105,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/components/common/StatusBar.tsx(108,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/components/semantic/SemanticCard.tsx(88,9): error TS2554: Expected 0-3 arguments, but got 4.
+src/composables/useAIWorkflow.ts(190,9): error TS2451: Cannot redeclare block-scoped variable 'calculateTotalProgress'.
+src/composables/useAIWorkflow.ts(358,9): error TS2451: Cannot redeclare block-scoped variable 'calculateTotalProgress'.
+src/composables/useProject.ts(379,9): error TS2353: Object literal may only specify known properties, and 'headers' does not exist in type 'AbortController'.
+src/composables/useUser.ts(226,17): error TS2345: Argument of type '{ settings: { language?: string | undefined; theme?: "light" | "dark" | "system" | undefined; notifications?: boolean | undefined; autoSave?: boolean | undefined; }; id: string; username: string; email: string; role: "admin" | "user" | "guest"; avatar?: string; }' is not assignable to parameter of type 'SetStateAction<User | null>'.
+  Type '{ settings: { language?: string | undefined; theme?: "light" | "dark" | "system" | undefined; notifications?: boolean | undefined; autoSave?: boolean | undefined; }; id: string; username: string; email: string; role: "admin" | "user" | "guest"; avatar?: string; }' is not assignable to type 'User'.
+    The types of 'settings.language' are incompatible between these types.
+      Type 'string | undefined' is not assignable to type 'string'.
+        Type 'undefined' is not assignable to type 'string'.
+src/hooks/useAIInference.ts(2,22): error TS6133: 'queryClient' is declared but its value is never read.
+src/hooks/useAIInference.ts(102,17): error TS6133: 'data' is declared but its value is never read.
+src/hooks/useAIInference.ts(187,17): error TS6133: 'data' is declared but its value is never read.
+src/hooks/useAIInference.ts(240,24): error TS6133: 'imagePath' is declared but its value is never read.
+src/i18n/useTranslation.ts(67,3): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/GridOverlay.tsx(19,18): error TS6133: 'dispatch' is declared but its value is never read.
+src/modules/canvas/components/LeftToolbar.tsx(19,25): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(20,25): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(21,22): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(24,29): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(25,24): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(26,29): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(29,24): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(30,27): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(31,23): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(34,26): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(35,23): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(36,25): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(39,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(40,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(41,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(42,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(43,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(46,9): error TS6133: 'handleToolSelect' is declared but its value is never read.
+src/modules/canvas/components/LeftToolbar.tsx(54,9): error TS6133: 'handleStageChange' is declared but its value is never read.
+src/modules/canvas/components/LeftToolbar.tsx(64,9): error TS6133: 'currentTools' is declared but its value is never read.
+src/modules/canvas/components/LeftToolbar.tsx(73,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(80,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/LeftToolbar.tsx(87,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/components/Overlays/RiggingToolbar.tsx(32,71): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/Overlays/RiggingToolbar.tsx(34,18): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactNode'.
+  Type 'Record<string, any>' is not assignable to type 'ReactNode'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/Overlays/RiggingToolbar.tsx(42,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/Overlays/RiggingToolbar.tsx(46,18): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactNode'.
+  Type 'Record<string, any>' is not assignable to type 'ReactNode'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/Overlays/RiggingToolbar.tsx(54,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/Overlays/RiggingToolbar.tsx(58,18): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactNode'.
+  Type 'Record<string, any>' is not assignable to type 'ReactNode'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/Overlays/RiggingToolbar.tsx(66,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/Overlays/RiggingToolbar.tsx(70,18): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactNode'.
+  Type 'Record<string, any>' is not assignable to type 'ReactNode'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/Overlays/RiggingToolbar.tsx(78,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/Overlays/RiggingToolbar.tsx(87,16): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactNode'.
+  Type 'Record<string, any>' is not assignable to type 'ReactNode'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/Overlays/RiggingToolbar.tsx(95,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/Overlays/TopStatusBar.tsx(23,17): error TS2304: Cannot find name 'useTranslation'.
+src/modules/canvas/components/panels/AnimationTimeline.tsx(92,69): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/AnimationTimeline.tsx(158,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/AnimationTimeline.tsx(169,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/AnimationTimeline.tsx(175,69): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/AnimationTimeline.tsx(177,36): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/AnimationTimeline.tsx(178,36): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/AutoMeshPanel.tsx(82,22): error TS2353: Object literal may only specify known properties, and 'meshData' does not exist in type 'Partial<Layer>'.
+src/modules/canvas/components/panels/AutoMeshPanel.tsx(149,54): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/AutoMeshPanel.tsx(155,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/AutoMeshPanel.tsx(169,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/AutoMeshPanel.tsx(183,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/AutoMeshPanel.tsx(202,9): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/AutoMeshPanel.tsx(208,54): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/BoneHierarchy.tsx(82,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/BoneHierarchy.tsx(91,50): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/BoneHierarchy.tsx(96,52): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/BoneHierarchy.tsx(113,52): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/BoneHierarchy.tsx(129,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/BoneHierarchy.tsx(135,50): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/BoneHierarchy.tsx(140,52): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/ClipManager.tsx(36,9): error TS6133: 'updateAnimation' is declared but its value is never read.
+src/modules/canvas/components/panels/ClipManager.tsx(75,47): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/ClipManager.tsx(81,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/ClipManager.tsx(87,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/ClipManager.tsx(112,50): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/ClipManager.tsx(117,52): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/ClipManager.tsx(133,50): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/ClipManager.tsx(144,61): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/ClipManager.tsx(150,36): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/ClipManager.tsx(151,36): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/ClipManager.tsx(158,50): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/ClipManager.tsx(162,61): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/ClipManager.tsx(173,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/InpaintSettings.tsx(59,79): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/InpaintSettings.tsx(65,32): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/InpaintSettings.tsx(66,38): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/InpaintSettings.tsx(73,70): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/InpaintSettings.tsx(90,70): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/InpaintSettings.tsx(106,9): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/LayerManager.tsx(47,9): error TS6133: 'handleRenameLayer' is declared but its value is never read.
+src/modules/canvas/components/panels/LayerManager.tsx(157,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/LayerManager.tsx(230,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/LayerManager.tsx(238,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/MirrorSymmetryPanel.tsx(128,54): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/MirrorSymmetryPanel.tsx(133,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/MirrorSymmetryPanel.tsx(144,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/MirrorSymmetryPanel.tsx(154,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/MirrorSymmetryPanel.tsx(162,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/MirrorSymmetryPanel.tsx(177,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/MirrorSymmetryPanel.tsx(191,49): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/MirrorSymmetryPanel.tsx(210,9): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/MirrorSymmetryPanel.tsx(217,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/MirrorSymmetryPanel.tsx(241,9): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/MirrorSymmetryPanel.tsx(250,9): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PartsPresets.tsx(68,54): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PartsPresets.tsx(69,62): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PartsPresets.tsx(78,70): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PartsPresets.tsx(83,72): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PartsPresets.tsx(100,72): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PartsPresets.tsx(117,72): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(208,54): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(213,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(231,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(263,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(295,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(306,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(314,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(322,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(329,54): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(331,18): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(332,18): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(334,20): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(336,18): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/PoseControlPanel.tsx(346,52): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/WeightEditPanel.tsx(33,85): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/WeightEditPanel.tsx(38,71): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/WeightEditPanel.tsx(62,71): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/WeightEditPanel.tsx(92,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/panels/WeightEditPanel.tsx(100,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/Renderers/RenderDispatcher.tsx(32,3): error TS6133: 'onSelectLayer' is declared but its value is never read.
+src/modules/canvas/components/Renderers/RenderDispatcher.tsx(33,3): error TS6133: 'onUpdateOpacity' is declared but its value is never read.
+src/modules/canvas/components/Renderers/RenderDispatcher.tsx(34,3): error TS6133: 'onToggleVisibility' is declared but its value is never read.
+src/modules/canvas/components/Renderers/RenderDispatcher.tsx(35,3): error TS6133: 'onAddPoint' is declared but its value is never read.
+src/modules/canvas/components/Renderers/RenderDispatcher.tsx(36,3): error TS6133: 'onSelectPoint' is declared but its value is never read.
+src/modules/canvas/components/Renderers/RenderDispatcher.tsx(37,3): error TS6133: 'onToggleAddMode' is declared but its value is never read.
+src/modules/canvas/components/Renderers/RenderDispatcher.tsx(38,3): error TS6133: 'onConnectPoints' is declared but its value is never read.
+src/modules/canvas/components/Renderers/RenderDispatcher.tsx(41,3): error TS6133: 'onUpdateAnimation' is declared but its value is never read.
+src/modules/canvas/components/Renderers/StageARenderer.tsx(283,9): error TS6133: 'updateLayerZIndex' is declared but its value is never read.
+src/modules/canvas/components/Renderers/StageBRenderer.tsx(4,1): error TS6133: 'InteractiveOverlay' is declared but its value is never read.
+src/modules/canvas/components/SmartPanel.tsx(24,68): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/SmartPanel.tsx(27,56): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/SmartPanel.tsx(41,58): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/SmartPanel.tsx(65,102): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/SmartPanel.tsx(68,107): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/SmartPanel.tsx(76,102): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/SmartPanel.tsx(79,107): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/SmartPanel.tsx(87,102): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/SmartPanel.tsx(90,107): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/SmartPanel.tsx(98,102): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/SmartPanel.tsx(101,107): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/SmartPanel.tsx(106,21): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/components/SmartPanel.tsx(112,50): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/MainCanvas.tsx(211,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/canvas/MainCanvas.tsx(222,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/MainCanvas.tsx(236,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/MainCanvas.tsx(241,15): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/canvas/MainCanvas.tsx(337,77): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/ContextualOptions/CharacterLayerOptions.tsx(2,29): error TS2307: Cannot find module '../../../../components/common/NumberInput' or its corresponding type declarations.
+src/modules/header/ContextualOptions/PrecisionCutOptions.tsx(2,29): error TS2307: Cannot find module '../../../../components/common/NumberInput' or its corresponding type declarations.
+src/modules/header/ContextualOptions/SamOptions.tsx(16,3): error TS6133: 'onSettingsUpdate' is declared but its value is never read.
+src/modules/header/ContextualOptions/SkeletonBindingOptions.tsx(2,29): error TS2307: Cannot find module '../../../../components/common/NumberInput' or its corresponding type declarations.
+src/modules/header/GlobalMenu.tsx(98,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(108,21): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(113,21): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(118,21): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(129,70): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(140,76): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(150,76): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(160,76): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(166,51): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(167,53): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(168,54): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(178,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(185,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(198,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(208,15): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(212,15): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(216,15): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(220,15): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(231,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(241,15): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/GlobalMenu.tsx(245,15): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(89,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/header/Header.tsx(107,71): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(129,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(139,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(149,19): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(159,80): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(162,75): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(168,75): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(176,80): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(193,33): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(201,80): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(221,80): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(224,94): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(232,90): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(242,80): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(245,75): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(251,90): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(273,28): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(274,45): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(278,80): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(298,15): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/header/Header.tsx(304,15): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(218,17): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(234,17): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(248,13): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string'.
+src/modules/task/components/TaskPanel.tsx(325,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(334,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(338,9): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(338,33): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number'.
+  Type 'Record<string, any>' is not assignable to type 'string | number'.
+src/modules/task/components/TaskPanel.tsx(352,83): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(354,14): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(355,14): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(356,14): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(357,14): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(371,83): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(373,14): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(374,14): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(375,14): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(376,14): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+  Type 'Record<string, any>' is not assignable to type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null | undefined'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(390,83): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(393,16): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(395,16): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(450,87): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(461,21): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(471,21): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/modules/task/components/TaskPanel.tsx(480,11): error TS2322: Type 'string | Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+  Type 'Record<string, any>' is not assignable to type 'ReactI18NextChildren | Iterable<ReactI18NextChildren>'.
+    Type 'Record<string, any>' is missing the following properties from type 'ReactPortal': children, type, props, key
+src/testing/helpers.tsx(6,24): error TS2307: Cannot find module '@testing-library/react' or its corresponding type declarations.
+src/testing/helpers.tsx(18,20): error TS2322: Type '{ children: ReactElement<unknown, string | JSXElementConstructor<any>>; theme: ThemeConfig; }' is not assignable to type 'IntrinsicAttributes & ThemeProviderProps'.
+  Property 'theme' does not exist on type 'IntrinsicAttributes & ThemeProviderProps'.
+src/testing/helpers.tsx(33,20): error TS2322: Type '{ children: ReactElement<unknown, string | JSXElementConstructor<any>>; theme: any; }' is not assignable to type 'IntrinsicAttributes & ThemeProviderProps'.
+  Property 'theme' does not exist on type 'IntrinsicAttributes & ThemeProviderProps'.
+src/testing/helpers.tsx(47,14): error TS2304: Cannot find name 'jest'.
+src/testing/helpers.tsx(48,19): error TS2304: Cannot find name 'jest'.
+src/testing/helpers.tsx(49,24): error TS2304: Cannot find name 'jest'.
+src/testing/helpers.tsx(50,20): error TS2304: Cannot find name 'jest'.
+src/testing/helpers.tsx(51,19): error TS2304: Cannot find name 'jest'.
+src/testing/helpers.tsx(52,24): error TS2304: Cannot find name 'jest'.
+src/testing/helpers.tsx(53,18): error TS2304: Cannot find name 'jest'.
+src/testing/helpers.tsx(54,27): error TS2304: Cannot find name 'jest'.
+src/testing/helpers.tsx(55,23): error TS2304: Cannot find name 'jest'.
+src/testing/helpers.tsx(56,21): error TS2304: Cannot find name 'jest'.
+src/testing/helpers.tsx(57,21): error TS2304: Cannot find name 'jest'.
+src/testing/helpers.tsx(58,16): error TS2304: Cannot find name 'jest'.

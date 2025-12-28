@@ -1,0 +1,496 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 本地化Inter字体配置 */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/fonts/Inter-Light.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/Inter-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../assets/fonts/Inter-Medium.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../assets/fonts/Inter-SemiBold.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/Inter-Bold.woff2') format('woff2');
+  font-display: swap;
+}
+
+body {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* 自定义滚动条样式 - 使用主题变量 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-light);
+}
+
+/* 主题变量初始化 */
+:root {
+  /* 主题颜色变量将通过主题管理器动态设置 */
+  --color-background: #0F172A;
+  --color-surface: #1E293B;
+  --color-surface-elevated: #1E293B;
+  --color-border: #334155;
+  --color-border-light: #475569;
+  --color-border-dark: #1E293B;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #CBD5E1;
+  --color-text-tertiary: #94A3B8;
+  --color-text-inverse: #0F172A;
+  --color-accent: #818CF8;
+  --color-accent-light: #A5B4FC;
+  --color-accent-dark: #6366F1;
+  --color-success: #34D399;
+  --color-warning: #FBBF24;
+  --color-error: #F87171;
+  --color-info: #60A5FA;
+  --color-disabled: #334155;
+  --color-hover: #1E293B;
+  --color-active: #1E293B;
+  --color-header: #1E293B;
+  --color-header-hover: #1E293B;
+  --color-footer: #1E293B;
+  --font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* 深色主题 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0F172A;
+    --color-surface: #1E293B;
+    --color-surface-elevated: #1E293B;
+    --color-border: #334155;
+    --color-border-light: #475569;
+    --color-border-dark: #1E293B;
+    --color-text-primary: #F8FAFC;
+    --color-text-secondary: #CBD5E1;
+    --color-text-tertiary: #94A3B8;
+    --color-text-inverse: #0F172A;
+    --color-accent: #818CF8;
+    --color-accent-light: #A5B4FC;
+    --color-accent-dark: #6366F1;
+    --color-success: #34D399;
+    --color-warning: #FBBF24;
+    --color-error: #F87171;
+    --color-info: #60A5FA;
+    --color-disabled: #334155;
+    --color-hover: #1E293B;
+    --color-active: #1E293B;
+    --color-header: #1E293B;
+    --color-header-hover: #1E293B;
+    --color-footer: #1E293B;
+  }
+}
+
+/* 浅色主题 */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-background: #F5F7FA;
+    --color-surface: #FFFFFF;
+    --color-surface-elevated: #FFFFFF;
+    --color-border: #E2E8F0;
+    --color-border-light: #F1F5F9;
+    --color-border-dark: #CBD5E1;
+    --color-text-primary: #1E293B;
+    --color-text-secondary: #64748B;
+    --color-text-tertiary: #94A3B8;
+    --color-text-inverse: #FFFFFF;
+    --color-accent: #6366F1;
+    --color-accent-light: #818CF8;
+    --color-accent-dark: #4F46E5;
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-error: #EF4444;
+    --color-info: #3B82F6;
+    --color-disabled: #E2E8F0;
+    --color-hover: #F8FAFC;
+    --color-active: #EEF2FF;
+    --color-header: #FFFFFF;
+    --color-header-hover: #F8FAFC;
+    --color-footer: #FFFFFF;
+  }
+}
+
+/* 应用主题变量 */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+}
+
+/* 通用样式类 */
+.bg-background { background-color: var(--color-background); }
+.bg-surface { background-color: var(--color-surface); }
+.bg-surface-elevated { background-color: var(--color-surface-elevated); }
+.bg-accent { background-color: var(--color-accent); }
+.bg-accent-light { background-color: var(--color-accent-light); }
+.bg-accent-dark { background-color: var(--color-accent-dark); }
+.bg-success { background-color: var(--color-success); }
+.bg-warning { background-color: var(--color-warning); }
+.bg-error { background-color: var(--color-error); }
+.bg-info { background-color: var(--color-info); }
+.bg-disabled { background-color: var(--color-disabled); }
+.bg-hover:hover { background-color: var(--color-hover); }
+.bg-active { background-color: var(--color-active); }
+
+.text-text-primary { color: var(--color-text-primary); }
+.text-text-secondary { color: var(--color-text-secondary); }
+.text-text-tertiary { color: var(--color-text-tertiary); }
+.text-text-inverse { color: var(--color-text-inverse); }
+.text-accent { color: var(--color-accent); }
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+.text-error { color: var(--color-error); }
+.text-info { color: var(--color-info); }
+
+.border-border { border-color: var(--color-border); }
+.border-border-light { border-color: var(--color-border-light); }
+.border-border-dark { border-color: var(--color-border-dark); }
+.border-accent { border-color: var(--color-accent); }
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDownOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes slideUpOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes slideRightOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+@keyframes slideLeftOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* 淡入淡出容器 - 用于图像加载 */
+@keyframes fadeInContainer {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 列表展开进入 - 用于列表项加入 */
+@keyframes listEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 100px;
+  }
+}
+
+/* 列表展开退出 - 用于列表项消失 */
+@keyframes listExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 100px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.2s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.2s ease-out;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.2s ease-out;
+}
+
+.animate-slideLeft {
+  animation: slideLeft 0.2s ease-out;
+}
+
+.animate-slideRight {
+  animation: slideRight 0.2s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.2s ease-out;
+}
+
+.animate-slideDownOut {
+  animation: slideDownOut 0.2s ease-out;
+}
+
+.animate-slideUpOut {
+  animation: slideUpOut 0.2s ease-out;
+}
+
+.animate-slideRightOut {
+  animation: slideRightOut 0.2s ease-out;
+}
+
+.animate-slideLeftOut {
+  animation: slideLeftOut 0.2s ease-out;
+}
+
+.animate-scaleOut {
+  animation: scaleOut 0.2s ease-out;
+}
+
+.animate-fadeInContainer {
+  animation: fadeInContainer 0.5s ease-out;
+}
+
+.animate-listEnter {
+  animation: listEnter 0.3s ease-out both;
+  overflow: hidden;
+}
+
+.animate-listExit {
+  animation: listExit 0.3s ease-out both;
+  overflow: hidden;
+}
+
+/* 工具提示 */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  border: 1px solid var(--color-border);
+  font-size: 12px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .responsive-hide {
+    display: none;
+  }
+  
+  .responsive-full {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .responsive-tablet-hide {
+    display: none;
+  }
+}
+
+@media (min-width: 1025px) {
+  .responsive-desktop-hide {
+    display: none;
+  }
+}

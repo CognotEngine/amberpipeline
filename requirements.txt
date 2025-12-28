@@ -1,0 +1,40 @@
+# AmberPipeline AI Dependencies List
+
+# Core Dependencies
+numpy>=1.21.0
+pillow>=9.0.0
+
+# Image Processing
+opencv-python>=4.5.0
+# directxtk-textureprocessor>=1.0.0  # DirectXTex for texture compression (removed, needs manual installation)
+
+# AI Inference
+# segment-anything>=1.0.0  # Install only when needed
+# torch>=2.0.0  # Install only when needed
+# torchvision>=0.15.0  # Install only when needed
+# onnxruntime>=1.15.0  # Install only when needed
+
+# Directory Monitoring
+watchdog>=3.0.0
+
+# API Services
+fastapi>=0.95.0
+uvicorn>=0.22.0
+
+# UI Framework (Removed for Electron-based architecture)
+# pyimgui>=2.0.0  # Install only when needed
+# pygame>=2.1.0  # ImGui dependency, install only when needed
+# PyQt5>=5.15.0  # For visual interface development (replaced with Electron)
+# PyQt5-Qt5>=5.15.0
+# PyQt5-sip>=12.11.0
+# PyQt6>=6.5.0  # For visual interface development (removed for Electron)
+# PyQt6-WebEngine>=6.5.0  # For web engine support (removed for Electron)
+
+# Utility Libraries
+pydantic>=2.0.0  # For data validation
+rich>=13.0.0  # For beautiful console output
+
+# Development Tools
+black>=23.0.0  # Code formatting
+flake8>=6.0.0  # Code linting
+mypy>=1.0.0  # Type checking
