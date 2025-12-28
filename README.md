@@ -2,7 +2,6 @@
   <img src="https://github.com/CognotEngine/amberpipeline/blob/main/input/LOGO.jpeg" width="300" />
 </p>
 
-# AmberPipeline
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![React](https://img.shields.io/badge/React-19-blue.svg)](https://react.dev/)
