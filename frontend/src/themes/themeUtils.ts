@@ -241,31 +241,32 @@ export const getSemanticStyle = (semanticTag: string): string => {
     current = current[part];
   }
   
-  // 如果在静态映射中找到，直接返回
+  // 如果在静态映射中找到，直接返回（使用CSS变量的类名）
   if (foundInStatic && typeof current === 'string') {
     return current;
   }
   
-  // 否则检查主题配置，支持动态语义化标记
-  const theme = getCurrentTheme();
-  
   // 处理颜色相关的语义化标记，如 'bg.surface'、'text.primary' 等
-  if (parts.length === 2 && theme) {
+  // 这种情况下，parts[0]是类型（bg, text, border等），parts[1]是颜色名称
+  if (parts.length === 2) {
     const [type, name] = parts;
     
+    // 构建CSS变量名
+    const cssVarName = `--${name.replace(/([A-Z])/g, '-$1').toLowerCase()}`;
+    
     // 背景色
-    if (type === 'bg' && theme.colors[name as keyof typeof theme.colors]) {
-      return `bg-[${theme.colors[name as keyof typeof theme.colors]}]`;
+    if (type === 'bg') {
+      return `bg-[var(${cssVarName})]`;
     }
     
     // 文本色
-    if (type === 'text' && theme.colors[name as keyof typeof theme.colors]) {
-      return `text-[${theme.colors[name as keyof typeof theme.colors]}]`;
+    if (type === 'text') {
+      return `text-[var(${cssVarName})]`;
     }
     
     // 边框色
-    if (type === 'border' && theme.colors[name as keyof typeof theme.colors]) {
-      return `border-[${theme.colors[name as keyof typeof theme.colors]}]`;
+    if (type === 'border') {
+      return `border-[var(${cssVarName})]`;
     }
   }
   

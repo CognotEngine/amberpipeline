@@ -281,5 +281,8 @@
   "layer.zIndex": "Layer Order",
   "layer.type": "Layer Type",
   "layer.background": "Background Layer",
-  "layer.defaultName": "Layer {{index}}"
+  "layer.defaultName": "Layer {{index}}",
+  "menu.new-canvas": "New Canvas",
+  "canvas.width": "Width",
+  "canvas.height": "Height"
 }

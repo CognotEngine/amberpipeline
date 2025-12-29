@@ -4,7 +4,6 @@
 
 export { AmberGlowButton } from './components/common/AmberGlowButton';
 export { DragNumber } from './components/common/DragNumber';
-export { Modal } from './components/common/Modal';
 export { NumberInput } from './components/common/NumberInput';
 export { StatusBar } from './components/common/StatusBar';
 export { ThemeSwitcher } from './components/common/ThemeSwitcher';

@@ -48,8 +48,10 @@ export const TestApp: React.FC = () => {
     }
   ];
 
+
+
   return (
-    <div className="h-screen bg-background text-foreground">
+    <div className="h-screen bg-background text-foreground p-4">
       <CanvasProvider activeTabId="test-tab-1">
         <MainCanvas 
           tabs={testTabs}

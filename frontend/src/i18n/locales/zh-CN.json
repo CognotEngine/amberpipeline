@@ -345,5 +345,8 @@
   "view.showGrid": "显示网格",
   "view.showRulers": "显示标尺",
   "view.showGuides": "显示辅助线",
-  "menu.autoWorkflow": "自动工作流"
+  "menu.autoWorkflow": "自动工作流",
+  "menu.new-canvas": "新建画布",
+  "canvas.width": "宽度",
+  "canvas.height": "高度"
 }

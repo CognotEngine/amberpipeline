@@ -10,7 +10,6 @@ export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
 // 通用组件
 export { AmberGlowButton } from './common/AmberGlowButton'
 export { DragNumber } from './common/DragNumber'
-export { Modal } from './common/Modal'
 export { NumberInput } from './common/NumberInput'
 export { LeftNavigation } from './common/LeftNavigation'
 export { StatusBar } from './common/StatusBar'

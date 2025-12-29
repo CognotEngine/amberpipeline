@@ -60,6 +60,24 @@ export function initializeTheme(): void {
 
   // 应用主题
   applyTheme(themeState.currentTheme);
+  
+  // 监听系统主题变化
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  const handleSystemThemeChange = (e: MediaQueryListEvent) => {
+    // 只有在没有手动设置主题偏好时，才跟随系统主题变化
+    if (!localStorage.getItem('theme-preference')) {
+      const newTheme = e.matches ? 'modern-dark' : 'modern-light';
+      themeState.currentTheme = newTheme;
+      applyTheme(newTheme);
+      notifyThemeChange(newTheme);
+    }
+  };
+  
+  // 添加事件监听
+  mediaQuery.addEventListener('change', handleSystemThemeChange);
+  
+  // 保存监听器，以便在需要时移除
+  (window as any).__systemThemeListener = handleSystemThemeChange;
 }
 
 /**
@@ -97,6 +115,15 @@ export function applyTheme(themeId: string): void {
   root.style.setProperty('--color-disabled', colors.disabled);
   root.style.setProperty('--color-hover', colors.hover);
   root.style.setProperty('--color-active', colors.active);
+  
+  // 添加基础颜色变量（对应semanticClasses中的映射）
+  root.style.setProperty('--surface', colors.surface);
+  root.style.setProperty('--surface-elevated', colors.surfaceElevated);
+  root.style.setProperty('--text-primary', colors.textPrimary);
+  root.style.setProperty('--text-secondary', colors.textSecondary);
+  root.style.setProperty('--text-tertiary', colors.textTertiary);
+  root.style.setProperty('--text-inverse', colors.textInverse);
+  root.style.setProperty('--border', colors.border);
   
   // 设置圆角变量
   root.style.setProperty('--radius', '6px');

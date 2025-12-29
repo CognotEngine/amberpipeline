@@ -166,9 +166,4 @@ export type {
   SemanticTooltip
 } from '../components/semantic/SemanticTooltip';
 
-// 导出通用组件类型
-export type {
-  ModalSize,
-  ModalAnimation,
-  ModalProps
-} from '../components/common/Modal';
+

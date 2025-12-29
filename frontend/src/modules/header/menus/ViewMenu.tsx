@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from '../../../i18n';
 import { 
   ZoomIn, ZoomOut, Home, Eye, ArrowLeftRight, ArrowUpDown, 
@@ -6,7 +6,6 @@ import {
 } from 'lucide-react';
 import { Menu } from '../components/Menu';
 import { MenuItem } from '../components/MenuItem';
-import { Modal } from '../../../components/common/Modal';
 import { TaskModule } from '../../../modules/task/TaskModule';
 import { WorkflowControl, WorkflowStatusDisplay, FileTypeStats, WorkflowResults, TechPanel } from '../../../modules/task/components/TaskPanel';
 import { TaskList } from '../../../modules/task/components/TaskPanel';
@@ -29,8 +28,6 @@ export const ViewMenu: React.FC<ViewMenuProps> = ({
   onToggle
 }) => {
   const { t } = useTranslation();
-  const [showWorkflowModal, setShowWorkflowModal] = useState(false);
-  const [showTaskListModal, setShowTaskListModal] = useState(false);
 
   // 使用任务工作流Hook获取工作流状态和统计信息
   const { 
@@ -113,7 +110,8 @@ export const ViewMenu: React.FC<ViewMenuProps> = ({
           icon={RefreshCcw}
           onClick={() => {
             onToggle();
-            setShowWorkflowModal(true);
+            // 自动工作流功能待实现
+            console.log('自动工作流功能');
           }}
         />
         <MenuItem
@@ -121,53 +119,11 @@ export const ViewMenu: React.FC<ViewMenuProps> = ({
           icon={Clock}
           onClick={() => {
             onToggle();
-            setShowTaskListModal(true);
+            // 任务列表功能待实现
+            console.log('任务列表功能');
           }}
         />
       </Menu>
-
-      {/* 自动工作流模态对话框 */}
-      <Modal
-        visible={showWorkflowModal}
-        title={t('menu.autoWorkflow') || '自动工作流'}
-        onClose={() => setShowWorkflowModal(false)}
-        className="max-w-2xl max-h-[80vh] overflow-auto"
-      >
-        <div className="h-[60vh] overflow-auto p-4">
-          <TechPanel defaultOpen={true} bordered={true}>
-            {/* 工作流控制、状态和统计信息 - 水平排列 */}
-            <div className="flex flex-row flex-wrap gap-4 mb-4">
-              <WorkflowControl 
-                isRunning={workflowStatus.is_running} 
-                onStart={startWorkflow} 
-                onStop={stopWorkflow} 
-                onClearHistory={clearWorkflowHistory}
-              />
-              <WorkflowStatusDisplay workflowStatus={workflowStatus} />
-              <FileTypeStats stats={fileTypeStats} />
-            </div>
-            <WorkflowResults workflowStatus={workflowStatus} />
-          </TechPanel>
-        </div>
-      </Modal>
-
-      {/* 任务列表模态对话框 */}
-      <Modal
-        visible={showTaskListModal}
-        title={t('task-list.title') || '任务列表'}
-        onClose={() => setShowTaskListModal(false)}
-        className="max-w-2xl max-h-[80vh] overflow-auto"
-      >
-        <div className="h-[60vh] overflow-auto p-4">
-          <TechPanel defaultOpen={true} bordered={true}>
-            <TaskList 
-              tasks={currentTasks}
-              onTaskCancel={cancelTask}
-              onTaskRetry={retryTask}
-            />
-          </TechPanel>
-        </div>
-      </Modal>
     </>
   );
 };
